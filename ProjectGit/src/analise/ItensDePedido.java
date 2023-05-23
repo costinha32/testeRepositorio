@@ -5,10 +5,19 @@ public class ItensDePedido {
 	private Produto produto;
 
 	public boolean incrementaQtde() {
+		
+		System.out.println("\nQuantidade: " + quantidade);
+		System.out.println("\nNova quantidade: " + quantidade++);
+		
 		return incrementaQtde();
+	
 	}
 	
 	public boolean decrementaQtde() {
+		
+		System.out.println("\nQuantiade: " + quantidade);
+		System.out.println("\nNova quantidade: " + quantidade--);
+		
 		return decrementaQtde();
 		
 	}
@@ -16,7 +25,7 @@ public class ItensDePedido {
 	public double calcularSubTotal() {
 		double subtotal;
 		
-		subtotal =  + this.produto;
+		subtotal =  + 	this.produto;
 		
 		return subtotal;
 	}
