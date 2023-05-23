@@ -27,6 +27,17 @@ public class Pedido {
 		this.valorTotal = valorTotal;
 	}
 	
+	public boolean calcularTotal() {
+		
+		
+		
+		return calcularTotal();
+	}
+	
+	public String finalizarPedido() {
+		
+		return finalizarPedido();
+	}
 	
 	
 }
