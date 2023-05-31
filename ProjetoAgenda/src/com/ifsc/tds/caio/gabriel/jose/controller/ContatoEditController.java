@@ -60,6 +60,39 @@ public class ContatoEditController implements Initializable {
 
 	private boolean okClick = false;
 	
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+	public Stage getJanelaContatoEdit() {
+		return janelaContatoEdit;
+	}
+
+	public void setJanelaContatoEdit(Stage janelaContatoEdit) {
+		this.janelaContatoEdit = janelaContatoEdit;
+	}
+
+	public Contato getContato() {
+		return contato;
+	}
+
+	public void setContato(Contato contato) {
+		this.contato = contato;
+	}
+
+	public boolean isOkClick() {
+		return okClick;
+	}
+
+	public void setOkClick(boolean okClick) {
+		this.okClick = okClick;
+	}
+=======
+	private ContatoListaController contatoListaController;
+	private 
+>>>>>>> f85afe734f212f7898352769bbf3325176b22f2d
+	
+>>>>>>> 42500b0b6bdb22124841ce2fae23f831554eb58d
 	@FXML
 		void onClickBtnCancela(ActionEvent event) {
 		this.getJanelaContatoEdit().close();
