@@ -1,11 +1,16 @@
 package com.ifsc.tds.caio.gabriel.jose.controller;
 
+import com.peregrinoti.controller.CaixaListaController;
+import com.peregrinoti.controller.TipoColecaoListaController;
+import com.peregrinoti.entity.Revista;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 
 public class ContatoEditController {
 
@@ -42,6 +47,17 @@ public class ContatoEditController {
 
 	@FXML
 	private Button btnCnacela;
+
+	private Stage janelaContatoEdit;
+
+	private Contato contato;
+
+	private boolean okClick = false;
+	
+	private ContatoListaController contatoListaController;
+	
+	
+	
 
 
 
