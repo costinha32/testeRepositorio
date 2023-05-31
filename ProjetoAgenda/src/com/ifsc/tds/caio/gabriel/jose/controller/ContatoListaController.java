@@ -2,12 +2,12 @@ package com.ifsc.tds.caio.gabriel.jose.controller;
 
 import java.net.URL;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import com.ifsc.tds.caio.gabriel.jose.dao.ContatoDAO;
 import com.ifsc.tds.caio.gabriel.jose.enity.Contato;
-import com.peregrinoti.controller.AmigoListaController;
-import com.peregrinoti.entity.Amigo;
+import com.peregrinoti.controller.CaixaListaController;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -15,8 +15,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.SplitPane;
 import javafx.scene.control.TableColumn;
@@ -85,8 +87,6 @@ public class ContatoListaController  implements Initializable{
     @FXML
     private Tooltip tlpExcluir;
     
-
-<<<<<<< HEAD
     private List<Contato> listaContato;
 	private ObservableList<Contato> observableListaContato = FXCollections.observableArrayList();
 	private ContatoDAO contatoDAO;
@@ -94,14 +94,9 @@ public class ContatoListaController  implements Initializable{
 	public static final String CONTATO_EDITAR = " - Editar";
 	public static final String CONTATO_INCLUIR = " - Incluir";
 
-    
-    @FXML
-=======
-    
-	
+   
 
 	@FXML
->>>>>>> d1f68fee524facfa1a8b4182f860eed919b047b7
     void onClickBtnEditar(ActionEvent event) {
     	
     	Contato contato = this.tbvCodigoNome.getSelectionModel().getSelectedItem();
@@ -121,6 +116,49 @@ public class ContatoListaController  implements Initializable{
 
 
     }
+	
+	@FXML
+    void onClickBtnExcluir(ActionEvent event) {
+		
+		Contato contato = this.tbvCodigoNome.getSelectionModel().getSelectedItem();
+
+		if (contato != null) {
+
+			Alert alerta = new Alert(AlertType.CONFIRMATION);
+			alerta.setTitle("Pergunta");
+			alerta.setHeaderText("Confirma a exclusão do contato?\n" + contato.getNome());
+
+			ButtonType botaoNao = ButtonType.NO;
+			ButtonType botaoSim = ButtonType.YES;
+			alerta.getButtonTypes().setAll(botaoSim, botaoNao);
+			Optional<ButtonType> resultado = alerta.showAndWait();
+
+			if (resultado.get() == botaoSim) {
+				this.getContatoDAO().delete(contato);
+				this.carregarTableViewContato();
+			}
+		} else {
+			Alert alerta = new Alert(Alert.AlertType.ERROR);
+			alerta.setContentText("Por favor, escolha um amigo na tabela!");
+			alerta.show();
+		}
+
+    }
+	
+	  @FXML
+	    void onClickBtnIncluir(ActionEvent event) {
+
+		  Contato contato = new Contato();
+
+			boolean btnConfirmarClic = this.onShowTelaContatoEditar(contato, ContatoListaController.CONTATO_INCLUIR);
+
+			if (btnConfirmarClic) {
+				this.getContatoDAO().save(contato);
+				this.carregarTableViewContato();
+			}
+		  
+	    }
+
 
     public Object getContatoDAO() {
 		// TODO Auto-generated method stub
@@ -137,15 +175,8 @@ public class ContatoListaController  implements Initializable{
 		return false;
 	}
 
-	@FXML
-    void onClickBtnExcluir(ActionEvent event) {
-
-    }
-
-    @FXML
-    void onClickBtnIncluir(ActionEvent event) {
-
-    }
+	
+  
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
