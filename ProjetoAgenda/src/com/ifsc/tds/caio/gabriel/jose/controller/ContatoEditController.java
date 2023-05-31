@@ -53,7 +53,30 @@ public class ContatoEditController {
 
 	private boolean okClick = false;
 	
-	private ContatoListaController contatoListaController;
+
+	public Stage getJanelaContatoEdit() {
+		return janelaContatoEdit;
+	}
+
+	public void setJanelaContatoEdit(Stage janelaContatoEdit) {
+		this.janelaContatoEdit = janelaContatoEdit;
+	}
+
+	public Contato getContato() {
+		return contato;
+	}
+
+	public void setContato(Contato contato) {
+		this.contato = contato;
+	}
+
+	public boolean isOkClick() {
+		return okClick;
+	}
+
+	public void setOkClick(boolean okClick) {
+		this.okClick = okClick;
+	}
 	
 	
 	
