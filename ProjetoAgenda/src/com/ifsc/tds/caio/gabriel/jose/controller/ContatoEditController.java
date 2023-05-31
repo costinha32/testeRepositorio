@@ -2,7 +2,7 @@ package com.ifsc.tds.caio.gabriel.jose.controller;
 
 import com.ifsc.tds.caio.gabriel.jose.enity.Contato;
 
-
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -49,10 +49,13 @@ public class ContatoEditController {
 
 	private Stage janelaContatoEdit;
 
+	
+
 	private Contato contato;
 
 	private boolean okClick = false;
 	
+<<<<<<< HEAD
 
 	public Stage getJanelaContatoEdit() {
 		return janelaContatoEdit;
@@ -77,7 +80,47 @@ public class ContatoEditController {
 	public void setOkClick(boolean okClick) {
 		this.okClick = okClick;
 	}
+=======
+	private ContatoListaController contatoListaController;
+	private 
+>>>>>>> f85afe734f212f7898352769bbf3325176b22f2d
 	
+	@FXML
+		void onClickBtnCancela(ActionEvent event) {
+		this.getJanelaContatoEdit().close();
+	}
+
+	public Stage getJanelaContatoEdit() {
+		return janelaContatoEdit;
+	}
+
+	public void setJanelaContatoEdit(Stage janelaContatoEdit) {
+		this.janelaContatoEdit = janelaContatoEdit;
+	}
+
+	public Contato getContato() {
+		return contato;
+	}
+
+	public void setContato(Contato contato) {
+		this.contato = contato;
+	}
+
+	public boolean isOkClick() {
+		return okClick;
+	}
+
+	public void setOkClick(boolean okClick) {
+		this.okClick = okClick;
+	}
+
+	public ContatoListaController getContatoListaController() {
+		return contatoListaController;
+	}
+
+	public void setContatoListaController(ContatoListaController contatoListaController) {
+		this.contatoListaController = contatoListaController;
+	}
 	
 	
 
