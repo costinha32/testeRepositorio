@@ -55,7 +55,7 @@ public class ContatoEditController implements Initializable {
 
 	private Contato contato;
 
-<<<<<<< HEAD
+
 	private boolean okClick = false;
 
 	public Stage getJanelaContatoEdit() {
@@ -81,15 +81,12 @@ public class ContatoEditController implements Initializable {
 	public void setOkClick(boolean okClick) {
 		this.okClick = okClick;
 	}
-=======
->>>>>>> 75a7dc75660df1ebe753cb90e4389a0dd7b91ac2
-	
+
 	@FXML
 		void onClickBtnCancela(ActionEvent event) {
 		this.getJanelaContatoEdit().close();
 	}
-<<<<<<< HEAD
-=======
+
 	void onClickBtnOK(ActionEvent event) {
 		if (validarCampos()) {
 			this.contato.setNome(this.txtNome.getText());
@@ -102,29 +99,11 @@ public class ContatoEditController implements Initializable {
 	}
 	
 
-	public void setJanelaContatoEdit(Stage janelaContatoEdit) {
-		this.janelaContatoEdit = janelaContatoEdit;
-	}
 
-	public Contato getContato() {
-		return contato;
-	}
-
-	public void setContato(Contato contato) {
-		this.contato = contato;
-	}
-
-	public boolean isOkClick() {
-		return okClick;
-	}
-
-	public void setOkClick(boolean okClick) {
-		this.okClick = okClick;
-	}
+	
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
->>>>>>> 75a7dc75660df1ebe753cb90e4389a0dd7b91ac2
 
 	}
 	
