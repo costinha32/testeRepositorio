@@ -1,48 +1,45 @@
 package com.ifsc.tds.caio.gabriel.jose.controller;
 
-	import javafx.fxml.FXML;
-	import javafx.scene.control.Button;
-	import javafx.scene.control.Label;
-	import javafx.scene.control.TextField;
-	import javafx.scene.layout.AnchorPane;
-	import javafx.scene.layout.GridPane;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 
-	public class ContatoEditController {
+public class ContatoEditController {
 
-	    @FXML
-	    private AnchorPane pnlPrincipal;
+	@FXML
+	private AnchorPane pnlPrincipal;
 
-	    @FXML
-	    private GridPane pnlDados;
+	@FXML
+	private GridPane pnlDados;
 
-	    @FXML
-	    private Label lblNome;
+	@FXML
+	private Label lblNome;
 
-	    @FXML
-	    private Label lblTelefone;
+	@FXML
+	private Label lblTelefone;
 
-	    @FXML
-	    private Label lblEmail;
+	@FXML
+	private Label lblEmail;
 
-	    @FXML
-	    private TextField txtNome;
+	@FXML
+	private TextField txtNome;
 
-	    @FXML
-	    private TextField txtTelefone;
+	@FXML
+	private TextField txtTelefone;
 
-	    @FXML
-	    private TextField txtEmail;
+	@FXML
+	private TextField txtEmail;
 
-	    @FXML
-	    private GridPane pnlButton;
+	@FXML
+	private GridPane pnlButton;
 
-	    @FXML
-	    private Button btnOk;
+	@FXML
+	private Button btnOk;
 
-	    @FXML
-	    private Button btnCnacela;
+	@FXML
+	private Button btnCnacela;
 
-	}
-
-
-
+}

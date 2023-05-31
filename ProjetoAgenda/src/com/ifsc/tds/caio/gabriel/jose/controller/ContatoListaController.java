@@ -1,11 +1,20 @@
 package com.ifsc.tds.caio.gabriel.jose.controller;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
+import com.ifsc.tds.caio.gabriel.jose.dao.ContatoDAO;
+import com.ifsc.tds.caio.gabriel.jose.enity.Contato;
+import com.peregrinoti.controller.AmigoListaController;
+import com.peregrinoti.entity.Amigo;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.Label;
@@ -29,13 +38,13 @@ public class ContatoListaController  implements Initializable{
     private AnchorPane pnlEsquerda;
 
     @FXML
-    private TableView<?> tbvCodigoNome;
+    private TableView<Contato> tbvCodigoNome;
 
     @FXML
-    private TableColumn<?, ?> tbcCodigo;
+    private TableColumn<Contato, Integer > tbcCodigo;
 
     @FXML
-    private TableColumn<?, ?> tbcNome;
+    private TableColumn<Contato, String > tbcNome;
 
     @FXML
     private AnchorPane pnlDireita;
@@ -76,12 +85,51 @@ public class ContatoListaController  implements Initializable{
     @FXML
     private Tooltip tlpExcluir;
 
+    private List<Contato> listaContato;
+	private ObservableList<Contato> observableListaContato = FXCollections.observableArrayList();
+	private ContatoDAO contatoDAO;
+
+	public static final String CONTATO_EDITAR = " - Editar";
+	public static final String CONTATO_INCLUIR = " - Incluir";
+
+    
     @FXML
     void onClickBtnEditar(ActionEvent event) {
+    	
+    	Contato contato = this.tbvCodigoNome.getSelectionModel().getSelectedItem();
+
+		if (contato != null) {
+			boolean btnConfirmarClic = this.onShowTelaContatoEditar(contato, ContatoListaController.CONTATO_EDITAR);
+
+			if (btnConfirmarClic) {
+				this.getContatoDAO().update(contato, null);
+				this.carregarTableViewContato();
+			}
+		} else {
+			Alert alerta = new Alert(Alert.AlertType.ERROR);
+			alerta.setContentText("Por favor, escolha um amigo na tabela!");
+			alerta.show();
+		}
+
 
     }
 
-    @FXML
+    public Object getContatoDAO() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void carregarTableViewContato() {
+		// TODO Auto-generated method stub
+		
+	}
+    
+	public boolean onShowTelaContatoEditar(Contato contato, String contatoEditar) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@FXML
     void onClickBtnExcluir(ActionEvent event) {
 
     }
@@ -95,6 +143,26 @@ public class ContatoListaController  implements Initializable{
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	public List<Contato> getListaContato() {
+		return listaContato;
+	}
+
+	public void setListaContato(List<Contato> listaContato) {
+		this.listaContato = listaContato;
+	}
+
+	public ObservableList<Contato> getObservableListaContato() {
+		return observableListaContato;
+	}
+
+	public void setObservableListaContato(ObservableList<Contato> observableListaContato) {
+		this.observableListaContato = observableListaContato;
+	}
+
+	public void setContatoDAO(ContatoDAO contatoDAO) {
+		this.contatoDAO = contatoDAO;
 	}
 
 }
