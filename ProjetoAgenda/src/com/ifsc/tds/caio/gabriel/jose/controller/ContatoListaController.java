@@ -7,7 +7,6 @@ import java.util.ResourceBundle;
 
 import com.ifsc.tds.caio.gabriel.jose.dao.ContatoDAO;
 import com.ifsc.tds.caio.gabriel.jose.enity.Contato;
-import com.peregrinoti.controller.CaixaListaController;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
