@@ -1,8 +1,7 @@
 package com.ifsc.tds.caio.gabriel.jose.controller;
 
-import com.peregrinoti.controller.CaixaListaController;
-import com.peregrinoti.controller.TipoColecaoListaController;
-import com.peregrinoti.entity.Revista;
+import com.ifsc.tds.caio.gabriel.jose.enity.Contato;
+
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
