@@ -87,6 +87,10 @@ public class ContatoListaController  implements Initializable{
     @FXML
     private Tooltip tlpExcluir;
     
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2d5554be74c0ce87976c6a44cb6a92e62f9973b6
     private List<Contato> listaContato;
 	private ObservableList<Contato> observableListaContato = FXCollections.observableArrayList();
 	private ContatoDAO contatoDAO;
@@ -94,9 +98,14 @@ public class ContatoListaController  implements Initializable{
 	public static final String CONTATO_EDITAR = " - Editar";
 	public static final String CONTATO_INCLUIR = " - Incluir";
 
+<<<<<<< HEAD
    
 
 	@FXML
+=======
+    
+    
+>>>>>>> 2d5554be74c0ce87976c6a44cb6a92e62f9973b6
     void onClickBtnEditar(ActionEvent event) {
     	
     	Contato contato = this.tbvCodigoNome.getSelectionModel().getSelectedItem();
