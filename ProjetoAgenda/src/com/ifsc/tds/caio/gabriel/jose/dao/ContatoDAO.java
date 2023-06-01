@@ -39,7 +39,8 @@ public class ContatoDAO implements DAO<Contato> {
 				// atribui campo para atributo
 				contato.setIdContato(rset.getInt("id"));
 				contato.setNome(rset.getString("Nome"));
-				contato.setTelefone(rset.getString("Nome do Responsável"));
+				contato.setTelefone(rset.getString("Telefone"));
+				contato.setEmail(rset.getString("Email"));
 			}
 
 		} catch (Exception e) {
@@ -91,6 +92,7 @@ public class ContatoDAO implements DAO<Contato> {
 				contato.setIdContato(rset.getInt("id"));
 				contato.setNome(rset.getString("Nome"));
 				contato.setTelefone(rset.getString("Telefone"));
+				contato.setEmail(rset.getString("Email"));
 				contatos.add(contato);
 
 			}
