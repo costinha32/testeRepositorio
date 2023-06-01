@@ -63,12 +63,12 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="btnOk" alignment="BASELINE_CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="85.0" text="OK">
+            <Button fx:id="btnOk" alignment="BASELINE_CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onClickBtnOK" prefHeight="25.0" prefWidth="85.0" text="OK">
                <GridPane.margin>
                   <Insets right="10.0" />
                </GridPane.margin>
             </Button>
-            <Button fx:id="btnCnacela" alignment="BASELINE_CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="85.0" text="Cancela" GridPane.columnIndex="1">
+            <Button fx:id="btnCnacela" alignment="BASELINE_CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onClickBtnCancela" prefHeight="25.0" prefWidth="85.0" text="Cancela" GridPane.columnIndex="1">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>

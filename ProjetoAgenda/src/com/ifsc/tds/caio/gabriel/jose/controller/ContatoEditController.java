@@ -55,7 +55,6 @@ public class ContatoEditController implements Initializable {
 
 	private Contato contato;
 
-
 	private boolean okClick = false;
 
 	public Stage getJanelaContatoEdit() {
@@ -86,7 +85,7 @@ public class ContatoEditController implements Initializable {
 		void onClickBtnCancela(ActionEvent event) {
 		this.getJanelaContatoEdit().close();
 	}
-
+	@FXML
 	void onClickBtnOK(ActionEvent event) {
 		if (validarCampos()) {
 			this.contato.setNome(this.txtNome.getText());
@@ -139,7 +138,11 @@ public class ContatoEditController implements Initializable {
 	}
 
 	public void populaTela(Contato contato) {
-		// TODO Auto-generated method stub
+		this.contato = contato;
+
+		this.txtNome.setText(contato.getNome());
+		this.txtTelefone.setText(contato.getTelefone());
+		this.txtEmail.setText(contato.getEmail());
 		
 	}	
 }

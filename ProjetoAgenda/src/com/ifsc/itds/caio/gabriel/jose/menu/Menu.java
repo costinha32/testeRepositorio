@@ -1,6 +1,6 @@
 package com.ifsc.itds.caio.gabriel.jose.menu;
 
-import com.ifsc.tds.caio.gabriel.jose.controller.MenuControlle;
+import com.ifsc.tds.caio.gabriel.jose.controller.ContatoListaController;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -16,22 +16,23 @@ public class Menu extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			// carregando o loader
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/ifsc/tds/caio/gabriel/jose/view/Menu.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/ifsc/tds/caio/gabriel/jose/view/ContatoLista.fxml"));
 			Parent menuXML = loader.load();
 
 			// carregando o controller e a scene
-			MenuControlle menuController = loader.getController();
+			ContatoListaController contatoListaController = loader.getController();
 			Scene menuLayout = new Scene(menuXML);
 
 			Stage menuJanela = new Stage();
 			menuJanela.initModality(Modality.APPLICATION_MODAL);
 			menuJanela.resizableProperty().setValue(Boolean.FALSE);
 			menuJanela.setScene(menuLayout);
-			menuJanela.setTitle("Menu do sistema");
+			menuJanela.setTitle("Agenda minha");
 
 			// atribuindo evento para fechar janela
 			menuJanela.setOnCloseRequest(e -> {
-				if (menuController.onCloseQuery()) {
+				
+				if (contatoListaController.onCloseQuery()) {
 					System.exit(0);
 				} else {
 					e.consume();

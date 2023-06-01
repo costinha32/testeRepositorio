@@ -100,6 +100,7 @@ public class ContatoListaController implements Initializable {
 	@FXML
 	private Tooltip tlpExcluir;
 
+
 	private List<Contato> listaContato;
 	private ObservableList<Contato> observableListaContato = FXCollections.observableArrayList();
 	private ContatoDAO contatoDAO;
