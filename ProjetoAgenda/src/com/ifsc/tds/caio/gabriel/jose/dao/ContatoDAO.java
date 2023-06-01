@@ -66,7 +66,7 @@ public class ContatoDAO implements DAO<Contato> {
 	public List<Contato> getAll() {
 		List<Contato> contatos = new ArrayList<Contato>();
 
-		String sql = "select * from amigo";
+		String sql = "select * from contato";
 
 		// Recupera a conexão com o banco
 		Connection conexao = null;

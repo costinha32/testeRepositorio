@@ -136,5 +136,10 @@ public class ContatoEditController implements Initializable {
 
 			return false;
 		}
+	}
+
+	public void populaTela(Contato contato) {
+		// TODO Auto-generated method stub
+		
 	}	
 }
