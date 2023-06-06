@@ -123,7 +123,10 @@ public class ContatoEditController implements Initializable {
 		
 
 		if (mensagemErros.length() == 0) {
+			
+			System.out.println("Aqui deu certo!");
 			return true;
+			
 		}
 		else {
 			Alert alerta = new Alert(Alert.AlertType.ERROR);
