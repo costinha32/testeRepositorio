@@ -119,7 +119,7 @@ public class ContatoDAO implements DAO<Contato> {
 
 	@Override
 	public int save(Contato contato) {
-		String sql = "insert into contato (nome, telefone, email)" + " values (?, ?)";
+		String sql = "insert into contato (nome, telefone, email)" + " values (?, ?, ?)";
 
 		// Recupera a conexão com o banco
 		Connection conexao = null;

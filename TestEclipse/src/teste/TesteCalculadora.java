@@ -5,8 +5,11 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 import com.br.Calculadora;
+import com.br.Retangulo;
 
 class TesteCalculadora {
+	
+	Retangulo r = new Retangulo();
 	
 	Calculadora calc =  new Calculadora();
 	
@@ -29,6 +32,12 @@ class TesteCalculadora {
 	public void testMultiplicar() {
 		int resultado =  calc.multiplicacao(5, 6);
 		assertEquals(30, resultado);
+	}
+	
+	@Test
+	public void testRetangulo() {
+		double resultado = r.calculaArea(4, 8);
+		assertEquals(32, resultado);
 	}
 
 }
