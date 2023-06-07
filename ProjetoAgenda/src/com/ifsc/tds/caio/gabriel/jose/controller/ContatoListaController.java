@@ -193,7 +193,7 @@ public class ContatoListaController implements Initializable {
 
 
 	public void carregarTableViewContato() {
-		this.tbcCodigo.setCellValueFactory(new PropertyValueFactory<>("id"));
+		this.tbcCodigo.setCellValueFactory(new PropertyValueFactory<>("idContato"));
 		this.tbcNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
 
 		this.setListaContato(this.getContatoDAO().getAll());
