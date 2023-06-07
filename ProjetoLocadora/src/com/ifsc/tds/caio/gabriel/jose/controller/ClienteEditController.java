@@ -1,5 +1,7 @@
 package com.ifsc.tds.caio.gabriel.jose.controller;
 
+import com.ifsc.tds.caio.gabriel.jose.enity.Clientes;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -7,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 
 public class ClienteEditController {
 
@@ -52,5 +55,24 @@ public class ClienteEditController {
     void onClickBtnOK(ActionEvent event) {
 
     }
+
+	public void setJanelaClienteEdit(Stage janelaClientesEditar) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+		
+	
+
+	public void populaTela(Clientes clientes) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean isOkClick() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 
 }

@@ -6,9 +6,7 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 import com.ifsc.tds.caio.gabriel.jose.dao.ClientesDAO;
-import com.ifsc.tds.caio.gabriel.jose.dao.ContatoDAO;
 import com.ifsc.tds.caio.gabriel.jose.enity.Clientes;
-import com.ifsc.tds.caio.gabriel.jose.enity.Contato;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -245,14 +243,15 @@ public class ClienteListaController implements Initializable {
 		janelaClientesEditar.setScene(clientesEditLayout);
 
 		// carregando o controller e a scene
-		ClientesEditController clienteEditController = loader.getController();
-		clientesEditController.setJanelaClienteEdit(janelaClientesEditar);
-		contatoEditController.populaTela(clientes);
+		ClienteEditController clienteEditController = loader.getController();
+		clienteEditController.setJanelaClienteEdit(janelaClientesEditar);
+		clienteEditController.populaTela(clientes);
 
 		// mostrando a tela
-		janelaContatoEditar.showAndWait();
+		janelaClientesEditar.showAndWait();
 
-		return contatoEditController.isOkClick();
+		return clienteEditController.isOkClick();
+		
 	} catch (Exception e) {
 		e.printStackTrace();
 		
@@ -260,11 +259,35 @@ public class ClienteListaController implements Initializable {
 		return false;
 	}
 
-	
-
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 
+		this.setClientesDAO(new ClientesDAO());
+		this.carregarTableViewClientes();
+		this.selecionarItemTableViewClientes(null);
+
+		this.tbvClienteLista.getSelectionModel().selectedItemProperty()
+				.addListener((observable, oldValue, newValue) -> selecionarItemTableViewClientes(newValue));
+
+	}
+	public List<Clientes> retornaListagemClientes(){
+		if (this.getClientesDAO() == null) {
+			this.setContatoDAO(new ClientesDAO());
+		}
+		return this.getClientesDAO().getAll();
 	}
 
+	public List<Clientes> getListaContato() {
+		return listaClientes;
+	}
+	public boolean onCloseQuery() {
+		Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
+		alerta.setTitle("Pergunta");
+		alerta.setHeaderText("Deseja sair do cadastro de Cliente?");
+		ButtonType buttonTypeNO = ButtonType.NO;
+		ButtonType buttonTypeYES = ButtonType.YES;
+		alerta.getButtonTypes().setAll(buttonTypeYES, buttonTypeNO);
+		Optional<ButtonType> result = alerta.showAndWait();
+		return result.get() == buttonTypeYES ? true : false;
+	}
 }
