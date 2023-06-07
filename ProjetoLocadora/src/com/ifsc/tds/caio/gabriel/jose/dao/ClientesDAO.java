@@ -1,9 +1,13 @@
 package com.ifsc.tds.caio.gabriel.jose.dao;
 
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.ifsc.tds.caio.gabriel.jose.enity.Clientes;
+import com.peregrinoti.dao.Conexao;
+import com.peregrinoti.entity.Caixa;
+
 import java.sql.PreparedStatement;
 import java.sql.Connection;;
 
@@ -33,9 +37,60 @@ public class ClientesDAO implements DAO<Clientes> {
 				clientes.setEmail(rset.getNString("email"));
 			}
 			
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				try {
+					if (stm != null) {
+						stm.close();
+					}
+
+					if (conexao != null) {
+						conexao.close();
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+			return clientes;
+		}
+
+	@Override
+	public List<Clientes> getAll() {
+		List<Clientes> clientes = new ArrayList<Clientes>();
+
+		String sql = "select * from c";
+
+		// Recupera a conexão com o banco
+		Connection conexao = null;
+
+		// Criar uma preparação da consulta
+		PreparedStatement stm = null;
+
+		// Criar uma classe que guarde o retorno da operação
+		ResultSet rset = null;
+
+		try {
+
+			conexao = new Conexao().getConnection();
+
+			stm = conexao.prepareStatement(sql);
+			rset = stm.executeQuery();
+
+			while (rset.next()) {
+				Clientes clientes = new Clientes();
+
+				// atribui campo para atributo
+				clientes.setId(rset.getLong("id"));
+				clientes.setCor(rset.getString("cor"));
+				clientes.setCodigoEtiqueta(rset.getString("codigo_etiqueta"));
+
+				caixas.add(caixa);
+			}
+
 		} catch (Exception e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			try {
 				if (stm != null) {
 					stm.close();
@@ -44,21 +99,12 @@ public class ClientesDAO implements DAO<Clientes> {
 				if (conexao != null) {
 					conexao.close();
 				}
-				
-		catch (Exception e) {
-			e.printStackTrace();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
-			
-		}
-	}
-		
-		return clientes;
-	}
-
-	@Override
-	public List<Clientes> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return cli;
+	
 	}
 
 	@Override
