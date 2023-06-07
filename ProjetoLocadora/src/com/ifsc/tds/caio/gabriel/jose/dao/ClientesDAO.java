@@ -14,9 +14,9 @@ public class ClientesDAO implements DAO<Clientes> {
 	public Clientes get(Long id) {
 		Clientes clientes = null;
 		String sql = "select * from cliente where id=?";
-		
+
 		Connection conexao = null;
-		
+
 		PreparedStatement stm = null;
 		ResultSet rset = null;
 		try {
@@ -25,32 +25,32 @@ public class ClientesDAO implements DAO<Clientes> {
 			stm = conexao.prepareStatement(sql);
 			stm.setInt(1, id.intValue());
 			rset = stm.executeQuery();
-			
-			while(rset.next()) {
+
+			while (rset.next()) {
 				clientes = new Clientes();
-				
+
 				clientes.setId(rset.getLong("id"));
 				clientes.setNome(rset.getNString("nome"));
 				clientes.setEmail(rset.getNString("email"));
 			}
-			
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (stm != null) {
+					stm.close();
+				}
+
+				if (conexao != null) {
+					conexao.close();
+				}
 			} catch (Exception e) {
 				e.printStackTrace();
-			} finally {
-				try {
-					if (stm != null) {
-						stm.close();
-					}
-
-					if (conexao != null) {
-						conexao.close();
-					}
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
 			}
-			return clientes;
 		}
+		return clientes;
+	}
 
 	@Override
 	public List<Clientes> getAll() {
@@ -81,7 +81,7 @@ public class ClientesDAO implements DAO<Clientes> {
 				clientes.setId(rset.getLong("id"));
 				clientes.setNome(rset.getString("nome"));
 				clientes.setEmail(rset.getString("email"));
-			
+
 				clientesS.add(clientes);
 			}
 
@@ -101,7 +101,7 @@ public class ClientesDAO implements DAO<Clientes> {
 			}
 		}
 		return clientesS;
-	
+
 	}
 
 	@Override
@@ -143,7 +143,6 @@ public class ClientesDAO implements DAO<Clientes> {
 		return 0;
 	}
 
-
 	@Override
 	public boolean update(Clientes clientes, String[] params) {
 		String sql = "update clientes set nome = ?, email = ? where id = ";
@@ -161,7 +160,7 @@ public class ClientesDAO implements DAO<Clientes> {
 			stm.setString(1, clientes.getNome());
 			stm.setString(2, clientes.getEmail());
 			stm.setLong(3, clientes.getId());
-			
+
 			stm.execute();
 
 		} catch (Exception e) {
@@ -180,13 +179,13 @@ public class ClientesDAO implements DAO<Clientes> {
 				e.printStackTrace();
 			}
 		}
-	
+
 		return false;
 	}
 
 	@Override
 	public boolean delete(Clientes clientes) {
-		String sql ="delete from clientes where id = ?";
+		String sql = "delete from clientes where id = ?";
 		// Recupera a conexão com o banco
 		Connection conexao = null;
 
@@ -198,8 +197,7 @@ public class ClientesDAO implements DAO<Clientes> {
 			conexao = new Conexao().getConnection();
 
 			stm = conexao.prepareStatement(sql);
-			stm.setLong(3, clientes.getId());
-			
+			stm.setLong(1, clientes.getId());
 			stm.execute();
 
 		} catch (Exception e) {
@@ -218,8 +216,7 @@ public class ClientesDAO implements DAO<Clientes> {
 				e.printStackTrace();
 			}
 		}
-	
-		
+
 		return false;
 	}
 
