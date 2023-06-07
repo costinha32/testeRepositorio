@@ -22,7 +22,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label fx:id="lblNome" text="Nome">
+            <Label fx:id="lblDescricao" text="Descrição">
                <GridPane.margin>
                   <Insets left="10.0" />
                </GridPane.margin>
