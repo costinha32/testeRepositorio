@@ -3,6 +3,8 @@ package com.ifsc.tds.caio.gabriel.jose.enity;
 public class Clientes {
 
 	private long id;
+	private String nome;
+	private String email;
 
 	public long getId() {
 		return id;
@@ -28,7 +30,6 @@ public class Clientes {
 		this.email = email;
 	}
 
-	private String nome;
-	private String email;
+	
 
 }

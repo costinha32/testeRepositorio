@@ -5,9 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.ifsc.tds.caio.gabriel.jose.enity.Clientes;
-import com.peregrinoti.dao.Conexao;
-import com.peregrinoti.entity.Caixa;
-
 import java.sql.PreparedStatement;
 import java.sql.Connection;;
 
