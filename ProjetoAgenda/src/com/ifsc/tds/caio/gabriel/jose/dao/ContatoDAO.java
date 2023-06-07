@@ -14,7 +14,7 @@ public class ContatoDAO implements DAO<Contato> {
 	public Contato get(Integer idContato) {
 
 		Contato contato = null;
-		String sql = "Select * from contato where id = ?";
+		String sql = "Select * from contato where idContato = ?";
 
 		// Recupera a conexão com o banco
 		Connection conexao = null;
@@ -37,7 +37,7 @@ public class ContatoDAO implements DAO<Contato> {
 				contato = new Contato();
 
 				// atribui campo para atributo
-				contato.setIdContato(rset.getInt("id"));
+				contato.setIdContato(rset.getInt("idContato"));
 				contato.setNome(rset.getString("Nome"));
 				contato.setTelefone(rset.getString("Telefone"));
 				contato.setEmail(rset.getString("Email"));
@@ -89,7 +89,7 @@ public class ContatoDAO implements DAO<Contato> {
 				Contato contato = new Contato();
 
 				// atribui campo para atributo
-				contato.setIdContato(rset.getInt("id"));
+				contato.setIdContato(rset.getInt("idContato"));
 				contato.setNome(rset.getString("Nome"));
 				contato.setTelefone(rset.getString("Telefone"));
 				contato.setEmail(rset.getString("Email"));
@@ -159,7 +159,7 @@ public class ContatoDAO implements DAO<Contato> {
 
 	@Override
 	public boolean update(Contato contato, String[] params) {
-		String sql = "update contato set nome = ?, telefone = ?, email = ? where id = ?";
+		String sql = "update contato set nome = ?, telefone = ?, email = ? where idContato = ?";
 
 		// Recupera a conexão com o banco
 		Connection conexao = null;
@@ -200,7 +200,7 @@ public class ContatoDAO implements DAO<Contato> {
 
 	@Override
 	public boolean delete(Contato contato) {
-		String sql = "delete from contato where id = ?";
+		String sql = "delete from contato where idContato = ?";
 
 		// Recupera a conexão com o banco
 		Connection conexao = null;

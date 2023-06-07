@@ -5,11 +5,13 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 import com.br.Calculadora;
+import com.br.ConversorDeMoeda;
 import com.br.Retangulo;
 
 class TesteCalculadora {
 	
 	Retangulo r = new Retangulo();
+	ConversorDeMoeda moeda = new ConversorDeMoeda();
 	
 	Calculadora calc =  new Calculadora();
 	
@@ -38,6 +40,19 @@ class TesteCalculadora {
 	public void testRetangulo() {
 		double resultado = r.calculaArea(4, 8);
 		assertEquals(32, resultado);
+	}
+	
+	@Test
+	public void testConverterMoeda() {
+		
+		double resultado = moeda.converter(100.00, "USD", "BRL");
+		assertEquals(534.00, resultado);
+	}
+	@Test
+	public void testConverterMoeda1() {
+		
+		double resultado = moeda.converter(200.00, "BRL", "USD");
+		assertEquals(32.00, resultado);
 	}
 
 }
