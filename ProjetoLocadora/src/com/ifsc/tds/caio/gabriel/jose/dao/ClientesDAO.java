@@ -59,7 +59,7 @@ public class ClientesDAO implements DAO<Clientes> {
 	public List<Clientes> getAll() {
 		List<Clientes> clientes = new ArrayList<Clientes>();
 
-		String sql = "select * from c";
+		String sql = "select * from clientes";
 
 		// Recupera a conexão com o banco
 		Connection conexao = null;
@@ -82,10 +82,10 @@ public class ClientesDAO implements DAO<Clientes> {
 
 				// atribui campo para atributo
 				clientes.setId(rset.getLong("id"));
-				clientes.setCor(rset.getString("cor"));
-				clientes.setCodigoEtiqueta(rset.getString("codigo_etiqueta"));
-
-				caixas.add(caixa);
+				clientes.setNome(rset.getString("nome"));
+				clientes.setEmail(rset.getString("email"));
+			
+				clientes.add(clientes);
 			}
 
 		} catch (Exception e) {
