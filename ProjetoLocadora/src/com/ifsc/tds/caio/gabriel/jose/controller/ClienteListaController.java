@@ -1,7 +1,17 @@
 package com.ifsc.tds.caio.gabriel.jose.controller;
 
+import java.net.URL;
+import java.util.List;
+import java.util.ResourceBundle;
+
+import com.ifsc.tds.caio.gabriel.jose.dao.ClientesDAO;
+import com.ifsc.tds.caio.gabriel.jose.enity.Clientes;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.Label;
@@ -11,8 +21,10 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.Tooltip;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 
-public class ClienteListaController {
+
+public class ClienteListaController implements Initializable {
 
     @FXML
     private AnchorPane pnlPrincipal;
@@ -24,13 +36,13 @@ public class ClienteListaController {
     private AnchorPane pnlEsquerda;
 
     @FXML
-    private TableView<?> tbvClienteLista;
+    private TableView<Clientes> tbvClienteLista;
 
     @FXML
-    private TableColumn<?, ?> tbcCodigo;
+    private TableColumn<Clientes, Integer> tbcCodigo;
 
     @FXML
-    private TableColumn<?, ?> tbcNome;
+    private TableColumn<Clientes, String> tbcNome;
 
     @FXML
     private AnchorPane pnlDireita;
@@ -76,10 +88,33 @@ public class ClienteListaController {
 
     @FXML
     private Tooltip tplExcluir;
+    
+    private Stage stage;
+    
+    public Stage getStage() {
+		return stage;
+	}
 
+	public void setStage(Stage stage) {
+		this.stage = stage;
+	}
+
+	private List<Clientes> listaClientes;
+    private ObservableList<Clientes> observableListaClientes = FXCollections.observableArrayList();
+    private ClientesDAO clientesDAO;
+    
+    public static final String CLIENTES_EDITAR = " - Editar";
+	public static final String CLIENTES_INCLUIR = " - Incluir";
+	
     @FXML
     void onClickBtnEditar(ActionEvent event) {
-
+    	Clientes clientes = this.tbvClienteLista.getSelectionModel().getSelectedItem();
+    	
+    	if(clientes != null) {
+    		boolean  btnConfrimarClic = this.onShowTelaClienteEditar(clientes,ClienteListaController.CLIENTES_EDITAR);
+    			
+    		
+    	}
     }
 
     @FXML
@@ -91,5 +126,10 @@ public class ClienteListaController {
     void onClickBtnIncluir(ActionEvent event) {
 
     }
+
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		
+	}
 
 }
