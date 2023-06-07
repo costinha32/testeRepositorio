@@ -1,10 +1,19 @@
 package com.ifsc.tds.caio.gabriel.jose.enity;
 
 public class Clientes {
-	
+
 	private long id;
 	private String nome;
 	private String email;
+	private String login;
+
+	public String getLogin() {
+		return login;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
 
 	public long getId() {
 		return id;
@@ -29,7 +38,5 @@ public class Clientes {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
-
 
 }
