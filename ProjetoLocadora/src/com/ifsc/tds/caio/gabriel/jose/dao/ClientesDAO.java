@@ -14,9 +14,9 @@ public class ClientesDAO implements DAO<Clientes> {
 	public Clientes get(Long id) {
 		Clientes clientes = null;
 		String sql = "select * from cliente where id=?";
-		
+
 		Connection conexao = null;
-		
+
 		PreparedStatement stm = null;
 		ResultSet rset = null;
 		try {
@@ -25,36 +25,36 @@ public class ClientesDAO implements DAO<Clientes> {
 			stm = conexao.prepareStatement(sql);
 			stm.setInt(1, id.intValue());
 			rset = stm.executeQuery();
-			
-			while(rset.next()) {
+
+			while (rset.next()) {
 				clientes = new Clientes();
-				
+
 				clientes.setId(rset.getLong("id"));
 				clientes.setNome(rset.getNString("nome"));
 				clientes.setEmail(rset.getNString("email"));
 			}
-			
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (stm != null) {
+					stm.close();
+				}
+
+				if (conexao != null) {
+					conexao.close();
+				}
 			} catch (Exception e) {
 				e.printStackTrace();
-			} finally {
-				try {
-					if (stm != null) {
-						stm.close();
-					}
-
-					if (conexao != null) {
-						conexao.close();
-					}
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
 			}
-			return clientes;
 		}
+		return clientes;
+	}
 
 	@Override
 	public List<Clientes> getAll() {
-		List<Clientes> clientes = new ArrayList<Clientes>();
+		List<Clientes> clientesS = new ArrayList<Clientes>();
 
 		String sql = "select * from clientes";
 
@@ -81,8 +81,8 @@ public class ClientesDAO implements DAO<Clientes> {
 				clientes.setId(rset.getLong("id"));
 				clientes.setNome(rset.getString("nome"));
 				clientes.setEmail(rset.getString("email"));
-			
-				clientes.add(clientes);
+
+				clientesS.add(clientes);
 			}
 
 		} catch (Exception e) {
@@ -100,25 +100,123 @@ public class ClientesDAO implements DAO<Clientes> {
 				e.printStackTrace();
 			}
 		}
-		return cli;
-	
+		return clientesS;
+
 	}
 
 	@Override
-	public int save(Clientes t) {
-		// TODO Auto-generated method stub
+	public int save(Clientes clientes) {
+		String sql = "insert into clientes nome, email)" + " values (?, ?)";
+
+		// Recupera a conexão com o banco
+		Connection conexao = null;
+
+		// Criar uma preparação da consulta
+		PreparedStatement stm = null;
+
+		try {
+
+			conexao = new Conexao().getConnection();
+
+			stm = conexao.prepareStatement(sql);
+			stm.setString(1, clientes.getNome());
+			stm.setString(2, clientes.getEmail());
+
+			stm.execute();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (stm != null) {
+					stm.close();
+				}
+
+				if (conexao != null) {
+					conexao.close();
+				}
+				return 1;
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 		return 0;
 	}
 
 	@Override
-	public boolean update(Clientes t, String[] params) {
-		// TODO Auto-generated method stub
+	public boolean update(Clientes clientes, String[] params) {
+		String sql = "update clientes set nome = ?, email = ? where id = ";
+		// Recupera a conexão com o banco
+		Connection conexao = null;
+
+		// Criar uma preparação da consulta
+		PreparedStatement stm = null;
+
+		try {
+
+			conexao = new Conexao().getConnection();
+
+			stm = conexao.prepareStatement(sql);
+			stm.setString(1, clientes.getNome());
+			stm.setString(2, clientes.getEmail());
+			stm.setLong(3, clientes.getId());
+
+			stm.execute();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (stm != null) {
+					stm.close();
+				}
+
+				if (conexao != null) {
+					conexao.close();
+				}
+				return true;
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
 		return false;
 	}
 
 	@Override
-	public boolean delete(Clientes t) {
-		// TODO Auto-generated method stub
+	public boolean delete(Clientes clientes) {
+		String sql = "delete from clientes where id = ?";
+		// Recupera a conexão com o banco
+		Connection conexao = null;
+
+		// Criar uma preparação da consulta
+		PreparedStatement stm = null;
+
+		try {
+
+			conexao = new Conexao().getConnection();
+
+			stm = conexao.prepareStatement(sql);
+			stm.setLong(1, clientes.getId());
+			stm.execute();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (stm != null) {
+					stm.close();
+				}
+
+				if (conexao != null) {
+					conexao.close();
+				}
+				return true;
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
 		return false;
 	}
 
