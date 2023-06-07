@@ -104,23 +104,121 @@ public class FilmesDAO implements DAO<Filmes> {
 
 		@Override
 		public int save(Filmes filmes) {
-			String sql = "insert into filmes nomeFilmes) "+ "values(?)";
+			String sql = "insert into filmes nomeFilme) "+ "values(?)";
+			 
+			// Recupera a conexão com o banco
+			Connection conexao = null;
+
+			// Criar uma preparação da consulta
+			PreparedStatement stm = null;
+
+			try {
+
+				conexao = new Conexao().getConnection();
+
+				stm = conexao.prepareStatement(sql);
+				stm.setString(1, filmes.getNomeFilme());
+				stm.execute();
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				try {
+					if (stm != null) {
+						stm.close();
+					}
+
+					if (conexao != null) {
+						conexao.close();
+					}
+					return 1;
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
 			return 0;
 		}
+		
 
 		@Override
 		public boolean update(Filmes filmes, String[] params) {
-			// TODO Auto-generated method stub
+			String sql = "update filmes set nomeFilme = ? where id = ?";
+
+			// Recupera a conexão com o banco
+			Connection conexao = null;
+
+			// Criar uma preparação da consulta
+			PreparedStatement stm = null;
+
+			try {
+
+				conexao = new Conexao().getConnection();
+
+				stm = conexao.prepareStatement(sql);
+				stm.setString(1, filmes.getNomeFilme());
+				stm.setLong(2, filmes.getId());
+
+				stm.execute();
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				try {
+					if (stm != null) {
+						stm.close();
+					}
+
+					if (conexao != null) {
+						conexao.close();
+					}
+					return true;
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+
 			return false;
 		}
 
 		@Override
 		public boolean delete(Filmes filmes) {
-			// TODO Auto-generated method stub
+			
+			String sql = "delete from clientes where id = ?";
+			// Recupera a conexão com o banco
+			Connection conexao = null;
+
+			// Criar uma preparação da consulta
+			PreparedStatement stm = null;
+
+			try {
+
+				conexao = new Conexao().getConnection();
+
+				stm = conexao.prepareStatement(sql);
+				stm.setLong(1, filmes.getId());
+				stm.execute();
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				try {
+					if (stm != null) {
+						stm.close();
+					}
+
+					if (conexao != null) {
+						conexao.close();
+					}
+					return true;
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+
 			return false;
 		}
 
 	}
 
-
-}
+		
+			
