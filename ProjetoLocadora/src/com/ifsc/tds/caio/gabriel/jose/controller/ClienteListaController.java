@@ -62,7 +62,7 @@ public class ClienteListaController implements Initializable {
 	private GridPane pnlDetalhes;
 
 	@FXML
-	private Label lblLogin;
+	private Label lblTelefone;
 
 	@FXML
 	private Label lblEmail;
@@ -71,7 +71,7 @@ public class ClienteListaController implements Initializable {
 	private Label lblNomeValor;
 
 	@FXML
-	private Label lblLoginValor;
+	private Label lblTelefoneValor;
 
 	@FXML
 	private Label lblEmailValor;
@@ -112,7 +112,6 @@ public class ClienteListaController implements Initializable {
 	}
 
 	private List<Clientes> listaClientes;
-	
 
 	public void setClientesDAO(ClientesDAO clientesDAO) {
 		this.clientesDAO = clientesDAO;
@@ -136,18 +135,18 @@ public class ClienteListaController implements Initializable {
 				this.carregarTableViewClientes();
 			}
 
-		}else {
+		} else {
 			Alert alerta = new Alert(Alert.AlertType.ERROR);
 			alerta.setContentText("Por favor, escolha cliente na tabela!");
 			alerta.show();
 		}
 	}
-	
+
 	@FXML
 	void onClickBtnExcluir(ActionEvent event) {
 		Clientes clientes = this.tbvClienteLista.getSelectionModel().getSelectedItem();
-		
-		if(clientes !=null) {
+
+		if (clientes != null) {
 			Alert alerta = new Alert(AlertType.CONFIRMATION);
 			alerta.setTitle("Pergunta");
 			alerta.setHeaderText("Confirma a exclusão do contato?\n" + clientes.getNome());
@@ -178,7 +177,8 @@ public class ClienteListaController implements Initializable {
 
 		if (btnConfirmarClic) {
 			this.getClientesDAO().save(clientes);
-			this.carregarTableViewClientes();		}
+			this.carregarTableViewClientes();
+		}
 
 	}
 
@@ -190,32 +190,31 @@ public class ClienteListaController implements Initializable {
 	public void setContatoDAO(ClientesDAO clientesDAO) {
 		this.clientesDAO = clientesDAO;
 	}
-	
+
 	public void setListaClientes(List<Clientes> listaClientes) {
 		this.listaClientes = listaClientes;
 	}
-	
+
 	public ObservableList<Clientes> getObservableListaClientes() {
 		return observableListaClientes;
 	}
-	
-	public void setObservableListaClientes(ObservableList<Clientes> observableListaCLientes, ObservableList<Clientes> observableListaClientes) {
+
+	public void setObservableListaClientes(ObservableList<Clientes> observableListaCLientes,
+			ObservableList<Clientes> observableListaClientes) {
 		this.observableListaClientes = observableListaClientes;
 	}
 
 	public void selecionarItemTableViewClientes(Clientes clientes) {
 		if (clientes != null) {
 			this.lblNomeValor.setText(clientes.getNome());
-			this.lblLoginValor.setText(clientes.getLogin());
+			this.lblTelefoneValor.setText(clientes.getTelefone());
 			this.lblEmailValor.setText(clientes.getEmail());
 		} else {
 			this.lblNomeValor.setText("");
-			this.lblLoginValor.setText("");
+			this.lblTelefoneValor.setText("");
 			this.lblEmailValor.setText("");
 		}
 	}
-
-	
 
 	private void carregarTableViewClientes() {
 		this.tbcCodigo.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -224,37 +223,36 @@ public class ClienteListaController implements Initializable {
 		this.setListaClientes(this.getClientesDAO().getAll());
 		this.setObservableListaClientes(FXCollections.observableArrayList(this.getObservableListaClientes()));
 		this.tbvClienteLista.setItems(this.getObservableListaClientes());
-		
-	}
 
+	}
 
 	private boolean onShowTelaClienteEditar(Clientes clientes, String clientesEditar) {
 		try {
-		FXMLLoader loader = new FXMLLoader(
-		getClass().getResource("/com/ifsc/tds/caio/gabriel/jose/view/ClientesEdit.fxml"));
-		Parent clientesEditXML = loader.load();
-		
-		Stage janelaClientesEditar = new Stage();
-		janelaClientesEditar.setTitle("Cadastro de clientes" + clientesEditar);
-		janelaClientesEditar.initModality(Modality.APPLICATION_MODAL);
-		janelaClientesEditar.resizableProperty().setValue(Boolean.FALSE);
-		
-		Scene clientesEditLayout = new Scene(clientesEditXML);
-		janelaClientesEditar.setScene(clientesEditLayout);
+			FXMLLoader loader = new FXMLLoader(
+					getClass().getResource("/com/ifsc/tds/caio/gabriel/jose/view/ClientesEdit.fxml"));
+			Parent clientesEditXML = loader.load();
 
-		// carregando o controller e a scene
-		ClienteEditController clienteEditController = loader.getController();
-		clienteEditController.setJanelaClienteEdit(janelaClientesEditar);
-		clienteEditController.populaTela(clientes);
+			Stage janelaClientesEditar = new Stage();
+			janelaClientesEditar.setTitle("Cadastro de clientes" + clientesEditar);
+			janelaClientesEditar.initModality(Modality.APPLICATION_MODAL);
+			janelaClientesEditar.resizableProperty().setValue(Boolean.FALSE);
 
-		// mostrando a tela
-		janelaClientesEditar.showAndWait();
+			Scene clientesEditLayout = new Scene(clientesEditXML);
+			janelaClientesEditar.setScene(clientesEditLayout);
 
-		return clienteEditController.isOkClick();
-		
-	} catch (Exception e) {
-		e.printStackTrace();
-		
+			// carregando o controller e a scene
+			ClienteEditController clienteEditController = loader.getController();
+			clienteEditController.setJanelaClienteEdit(janelaClientesEditar);
+			clienteEditController.populaTela(clientes);
+
+			// mostrando a tela
+			janelaClientesEditar.showAndWait();
+
+			return clienteEditController.isOkClick();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+
 		}
 		return false;
 	}
@@ -270,7 +268,8 @@ public class ClienteListaController implements Initializable {
 				.addListener((observable, oldValue, newValue) -> selecionarItemTableViewClientes(newValue));
 
 	}
-	public List<Clientes> retornaListagemClientes(){
+
+	public List<Clientes> retornaListagemClientes() {
 		if (this.getClientesDAO() == null) {
 			this.setContatoDAO(new ClientesDAO());
 		}
@@ -280,6 +279,7 @@ public class ClienteListaController implements Initializable {
 	public List<Clientes> getListaContato() {
 		return listaClientes;
 	}
+
 	public boolean onCloseQuery() {
 		Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
 		alerta.setTitle("Pergunta");

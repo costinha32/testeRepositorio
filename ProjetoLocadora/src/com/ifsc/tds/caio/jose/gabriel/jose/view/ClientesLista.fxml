@@ -41,7 +41,7 @@
                </rowConstraints>
                <children>
                   <Label text="Nome" />
-                  <Label fx:id="lblLogin" text="Login" GridPane.rowIndex="1" />
+                  <Label fx:id="lblTelefone" text="Telefone" GridPane.rowIndex="1" />
                   <Label fx:id="lblEmail" text="E-mail" GridPane.rowIndex="2" />
                   <Label fx:id="lblNomeValor" prefHeight="17.0" prefWidth="31.0" GridPane.columnIndex="1" />
                   <Label fx:id="lblLoginValor" prefHeight="17.0" prefWidth="36.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />

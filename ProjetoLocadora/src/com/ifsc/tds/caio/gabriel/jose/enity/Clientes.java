@@ -5,14 +5,14 @@ public class Clientes {
 	private long id;
 	private String nome;
 	private String email;
-	private String login;
+	private String telefone;
 
-	public String getLogin() {
-		return login;
+	public String getTelefone() {
+		return telefone;
 	}
 
-	public void setLogin(String login) {
-		this.login = login;
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
 	}
 
 	public long getId() {
