@@ -113,7 +113,7 @@ public class MenuController implements Initializable{
 
 			// atribuindo evento para fechar janela
 			this.getStage().setOnCloseRequest(e -> {
-				if (EmprestimosListaController.onCloseQuery()) {
+				if (emprestimosListaController.onCloseQuery()) {
 					this.getStage().close();
 				} else {
 					e.consume();
