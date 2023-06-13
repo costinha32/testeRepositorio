@@ -7,7 +7,7 @@ public class Emprestimos {
 	private long id;
 	private Date dataEmpre;
 	private Date dataDev;
-	private String desc;
+	private String descr;
 	private Clientes clientes;
 	private Filmes filmes;
 	
@@ -29,11 +29,11 @@ public class Emprestimos {
 	public void setDataDev(Date dataDev) {
 		this.dataDev = dataDev;
 	}
-	public String getDesc() {
-		return desc;
+	public String getDescr() {
+		return descr;
 	}
 	public void setDesc(String desc) {
-		this.desc = desc;
+		this.descr = desc;
 	}
 	public Clientes getClientes() {
 		return clientes;
