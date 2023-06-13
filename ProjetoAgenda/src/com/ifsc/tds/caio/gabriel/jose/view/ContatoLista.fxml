@@ -12,13 +12,13 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane fx:id="pnlPrincipal" minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ifsc.tds.caio.gabriel.jose.controller.ContatoListaController">
+<AnchorPane fx:id="pnlPrincipal" minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="600.0" styleClass="AnchorPane" stylesheets="@../../../../../itds/caio/gabriel/jose/menu/application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ifsc.tds.caio.gabriel.jose.controller.ContatoListaController">
    <children>
-      <SplitPane fx:id="pnlDivisao" dividerPositions="0.35618729096989965" minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="600.0">
+      <SplitPane fx:id="pnlDivisao" dividerPositions="0.35618729096989965" minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="600.0" styleClass="AnchorPane">
          <items>
-            <AnchorPane fx:id="pnlEsquerda" prefHeight="200.0" prefWidth="200.0">
+            <AnchorPane fx:id="pnlEsquerda" prefHeight="200.0" prefWidth="200.0" styleClass="AnchorPane" stylesheets="@../../../../../itds/caio/gabriel/jose/menu/application.css">
                <children>
-                  <TableView fx:id="tbvCodigoNome" prefHeight="398.0" prefWidth="210.0">
+                  <TableView fx:id="tbvCodigoNome" prefHeight="398.0" prefWidth="210.0" styleClass="TableView" stylesheets="@../../../../../itds/caio/gabriel/jose/menu/application.css">
                      <columns>
                         <TableColumn fx:id="tbcCodigo" prefWidth="75.0" text="Código" />
                         <TableColumn fx:id="tbcNome" prefWidth="75.0" text="Nome" />
@@ -29,9 +29,9 @@
                   </TableView>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="pnlDireita" prefHeight="200.0" prefWidth="200.0">
+            <AnchorPane fx:id="pnlDireita" prefHeight="200.0" prefWidth="200.0" styleClass="AnchorPane">
                <children>
-                  <Label fx:id="lblDetalhes" text="Detalhes" AnchorPane.leftAnchor="5.0" />
+                  <Label fx:id="lblDetalhes" stylesheets="@../../../../../itds/caio/gabriel/jose/menu/application.css" text="Detalhes" textFill="WHITE" AnchorPane.leftAnchor="5.0" />
                   <GridPane fx:id="pnlDetalhes" layoutX="30.0" layoutY="75.0" prefHeight="90.0" prefWidth="320.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="50.0">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -44,17 +44,17 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label fx:id="lblNome" text="Nome" />
-                        <Label fx:id="lblTelefone" text="Telefone" GridPane.rowIndex="1" />
+                        <Label fx:id="lblNome" styleClass="Label" stylesheets="@../../../../../itds/caio/gabriel/jose/menu/application.css" text="Nome" textFill="#f5f5f5" />
+                        <Label fx:id="lblTelefone" styleClass="Label" stylesheets="@../../../../../itds/caio/gabriel/jose/menu/application.css" text="Telefone" textFill="#f8f4f4" GridPane.rowIndex="1" />
                         <Label fx:id="lblNomeValor" GridPane.columnIndex="1" />
                         <Label fx:id="lblTelefoneValor" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <Label fx:id="lblEmail" text="E-mail" GridPane.rowIndex="2" />
+                        <Label fx:id="lblEmail" stylesheets="@../../../../../itds/caio/gabriel/jose/menu/application.css" text="E-mail" textFill="WHITE" GridPane.rowIndex="2" />
                         <Label fx:id="lblEmailValor" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                      </children>
                   </GridPane>
                   <ButtonBar fx:id="barBotoes" layoutX="60.0" layoutY="340.0" prefHeight="40.0" prefWidth="200.0">
                     <buttons>
-                      <Button fx:id="btnInclur" mnemonicParsing="false" onAction="#onClickBtnIncluir" text="Incluir">
+                      <Button fx:id="btnInclur" mnemonicParsing="false" onAction="#onClickBtnIncluir" stylesheets="@../../../../../itds/caio/gabriel/jose/menu/application.css" text="Incluir">
                            <tooltip>
                               <Tooltip fx:id="tlpIncluir" text="Incluir" />
                            </tooltip>

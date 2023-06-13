@@ -1,5 +1,7 @@
 package com.ifsc.tds.caio.gabriel.jose.controller;
 
+import javafx.util.Callback;
+
 public class FilmesListaController {
 
 	public boolean onCloseQuery() {
@@ -7,4 +9,11 @@ public class FilmesListaController {
 		return false;
 	}
 
+	public Callback retornaListagemFilmes() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
+
+
