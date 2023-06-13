@@ -146,7 +146,7 @@ public class EmprestimosDAO  implements DAO<Emprestimos>{
 			stm = conexao.prepareStatement(sql);
 			stm.setDate(1, emprestimos.getDataEmpre());
 			stm.setDate(2, emprestimos.getDataDev());
-			stm.setString(3, emprestimos.getDesc());
+			stm.setString(3, emprestimos.getDescr());
 			stm.setLong(4, emprestimos.getClientes().getId());
 			stm.setLong(5, emprestimos.getFilmes().getId());
 
@@ -187,7 +187,7 @@ public class EmprestimosDAO  implements DAO<Emprestimos>{
 			stm = conexao.prepareStatement(sql);
 			stm.setDate(1, emprestimos.getDataEmpre());
 			stm.setDate(2, emprestimos.getDataDev());
-			stm.setString(3, emprestimos.getDesc());
+			stm.setString(3, emprestimos.getDescr());
 			stm.setLong(4, emprestimos.getClientes().getId());
 			stm.setLong(5, emprestimos.getFilmes().getId());
 			stm.setLong(6, emprestimos.getFilmes().getId());
