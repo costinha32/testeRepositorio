@@ -169,7 +169,7 @@ public class MenuController implements Initializable{
     	
     }
 
-    private boolean onCloseQuery() {
+    public boolean onCloseQuery() {
     	Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
 		alerta.setTitle("Pergunta");
 		alerta.setHeaderText("Deseja sair do sistema?");
