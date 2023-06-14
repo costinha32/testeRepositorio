@@ -1,6 +1,7 @@
 package com.ifsc.tds.caio.gabriel.jose.enity;
 
 import java.sql.Date;
+import java.time.format.DateTimeFormatter;
 
 public class Emprestimos {
 	
@@ -46,6 +47,14 @@ public class Emprestimos {
 	}
 	public void setFilmes(Filmes filmes) {
 		this.filmes = filmes;
+	}
+	public String getDataEmpreFormatada() {
+		DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		return this.dataEmpre.toLocalDate().format(formato).toString();
+	}
+	public String getDataDevFormatada() {
+		DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		return this.dataDev.toLocalDate().format(formato).toString();
 	}
 	
 	

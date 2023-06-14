@@ -7,7 +7,6 @@ import java.util.ResourceBundle;
 
 import com.ifsc.tds.caio.gabriel.jose.dao.EmprestimosDAO;
 import com.ifsc.tds.caio.gabriel.jose.enity.Emprestimos;
-import com.peregrinoti.dao.RevistaDAO;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -18,6 +17,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
@@ -26,7 +26,6 @@ import javafx.scene.control.SplitPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.Tooltip;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -113,7 +112,8 @@ public class EmprestimosListaController implements Initializable {
 
 	public static final String EMPRESTIMOS_EDITAR = "- Editar";
 	public static final String EMPRESTIMOS_INCLUIR = "- Incluit";
-
+	
+	
 	@FXML
 	void onClickBtnEditar(ActionEvent event) {
 		Emprestimos emprestimos = this.tbvEmprestimos.getSelectionModel().getSelectedItem();
@@ -235,15 +235,15 @@ public class EmprestimosListaController implements Initializable {
 
 	public void selecionarItemTableViewEmprestimos(Emprestimos emprestimos) {
 		if (emprestimos != null) {
-			this.lblDataEmpreValor.set(emprestimos.getDataEmpre());
-			this.lblAnoValor.setText(revista.getAnoFormatado());
-			this.lblCaixaValor.setText(revista.getCaixa().getCor());
-			this.lblColecaoValor.setText(revista.getTipoColecao().getNome());
+			this.lblDataEmpreValor.setText(emprestimos.getDataEmpreFormatada());
+			this.lblDataDevValor.setText(emprestimos.getDataDevFormatada());
+			this.lblClienteValor.setText(emprestimos.getClientes().getNome());
+			this.lblFilmeValor.setText(emprestimos.getFilmes().getNomeFilme());
 		} else {
 			this.lblDataEmpreValor.setText("");
-			this.lblAnoValor.setText("");
-			this.lblCaixaValor.setText("");
-			this.lblColecaoValor.setText("");
+			this.lblDataDevValor.setText("");
+			this.lblClienteValor.setText("");
+			this.lblFilmeValor.setText("");
 		}
 	}
 
