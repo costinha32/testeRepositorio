@@ -24,6 +24,8 @@ import javafx.scene.control.SplitPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.Tooltip;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 
@@ -108,17 +110,70 @@ public class FilmesListaController implements Initializable {
 	}
 	@FXML
 	void onClickBtnExcluir(ActionEvent event) {
+		Filmes filmes = this.tbvFilmeLista.getSelectionModel().getSelectedItem();
 
+		if (filmes != null) {
+
+			Alert alerta = new Alert(AlertType.CONFIRMATION);
+			alerta.setTitle("Pergunta");
+			alerta.setHeaderText("Confirma a exclusão do filmes?\n" + filmes.getNomeFilme());
+
+			ButtonType botaoNao = ButtonType.NO;
+			ButtonType botaoSim = ButtonType.YES;
+			alerta.getButtonTypes().setAll(botaoSim, botaoNao);
+			Optional<ButtonType> resultado = alerta.showAndWait();
+
+			if (resultado.get() == botaoSim) {
+				this.getFilmesDAO().delete(filmes);
+				this.carregarTableViewFilmesLsta();
+			}
+		} else {
+			Alert alerta = new Alert(Alert.AlertType.ERROR);
+			alerta.setContentText("Por favor, escolha um filme na tabela!");
+			alerta.show();
+		}
 	}
 
 	@FXML
 	void onClickBtnIncluir(ActionEvent event) {
+		Filmes filmes = new Filmes();
+
+		boolean btnConfirmarClic = this.onShowTelaFilmesListaEditar (filmes,
+				FilmesListaController.FILMESLISTA_INCLUIR);
+
+		if (btnConfirmarClic) {
+			this.getFilmesDAO().save(filmes);
+			this.carregarTableViewFilmesLsta();
+		}
 
 	}
 
 	private void carregarTableViewFilmesLsta() {
-		// TODO Auto-generated method stub
-		
+		this.tbcCodigo.setCellValueFactory(new PropertyValueFactory<>("id"));
+		this.tbcNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
+
+		this.setListaFilmes(this.getFilmesDAO().getAll());
+		this.setObservableListaFilmes(FXCollections.observableArrayList(this.getListaFilmes()));
+		this.tbvFilmeLista.setItems(this.getObservableListaFilmes());
+	}
+
+	public void selecionarItemTableViewTipoColecoes(TipoColecao tipoColecao) {
+		if (tipoColecao != null) {
+			this.lblNomeValor.setText(tipoColecao.getNome());
+		} else {
+			this.lblNomeValor.setText("");
+		}
+	}
+
+	public boolean onCloseQuery() {
+		Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
+		alerta.setTitle("Pergunta");
+		alerta.setHeaderText("Deseja sair do cadastro de tipo de coleção?");
+		ButtonType buttonTypeNO = ButtonType.NO;
+		ButtonType buttonTypeYES = ButtonType.YES;
+		alerta.getButtonTypes().setAll(buttonTypeYES, buttonTypeNO);
+		Optional<ButtonType> result = alerta.showAndWait();
+		return result.get() == buttonTypeYES ? true : false;		
 	}
 
 	private boolean onShowTelaFilmesListaEditar(Filmes filmes, String filmeslistaEditar) {
