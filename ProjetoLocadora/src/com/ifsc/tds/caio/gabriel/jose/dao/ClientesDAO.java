@@ -151,7 +151,7 @@ public class ClientesDAO implements DAO<Clientes> {
 
 	@Override
 	public boolean update(Clientes clientes, String[] params) {
-		String sql = "update clientes set nome = ?, telefone = ?, email = ? where idCliente = ?";
+		String sql = "update clientes set nome = ?, telefone = ?, email = ? where id = ?";
 		// Recupera a conexão com o banco
 		Connection conexao = null;
 

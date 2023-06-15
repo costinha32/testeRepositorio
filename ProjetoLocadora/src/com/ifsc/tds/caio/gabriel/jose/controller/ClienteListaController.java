@@ -221,7 +221,7 @@ public class ClienteListaController implements Initializable {
 		this.tbcNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
 
 		this.setListaClientes(this.getClientesDAO().getAll());
-		this.setObservableListaClientes(FXCollections.observableArrayList(this.getObservableListaClientes()));
+		this.setObservableListaClientes(FXCollections.observableArrayList(this.getListaContato()));
 		this.tbvClienteLista.setItems(this.getObservableListaClientes());
 
 	}
