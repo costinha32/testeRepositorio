@@ -58,12 +58,10 @@ public class ContatoEditController implements Initializable {
 	private boolean okClick = false;
 
 	public Stage getJanelaContatoEdit() {
-		System.out.println("getJanelaContatoEdit foi, não é aqui");
 		return janelaContatoEdit;
 	}
 
 	public void setJanelaContatoEdit(Stage janelaContatoEdit) {
-		System.out.println("SetJanelaContatoEdit foi, não é aqui");
 		this.janelaContatoEdit = janelaContatoEdit;
 	}
 
@@ -76,7 +74,6 @@ public class ContatoEditController implements Initializable {
 	}
 
 	public boolean isOkClick() {
-		System.out.println("Botao ok foi, não é aqui");
 		return okClick;
 	}
 
@@ -86,7 +83,7 @@ public class ContatoEditController implements Initializable {
 
 	@FXML
 		void onClickBtnCancela(ActionEvent event) {
-		System.out.println("Não pode ser aqui");
+		
 		this.getJanelaContatoEdit().close();
 	}
 	@FXML
@@ -126,7 +123,6 @@ public class ContatoEditController implements Initializable {
 
 		if (mensagemErros.length() == 0) {
 			
-			System.out.println("Aqui deu certo!");
 			return true;
 			
 		}

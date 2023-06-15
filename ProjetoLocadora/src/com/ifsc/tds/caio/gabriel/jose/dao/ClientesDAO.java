@@ -13,7 +13,7 @@ public class ClientesDAO implements DAO<Clientes> {
 	@Override
 	public Clientes get(Long id) {
 		Clientes clientes = null;
-		String sql = "select * from clientes where id=?";
+		String sql = "select * from cliente where id=?";
 
 		Connection conexao = null;
 
@@ -30,9 +30,10 @@ public class ClientesDAO implements DAO<Clientes> {
 				clientes = new Clientes();
 
 				clientes.setId(rset.getLong("id"));
-				clientes.setNome(rset.getNString("nome"));
-				clientes.setEmail(rset.getNString("email"));
-				clientes.setTelefone(rset.getNString("telfone"));
+				clientes.setNome(rset.getString("Nome"));
+				clientes.setTelefone(rset.getString("Telefone"));
+				clientes.setEmail(rset.getString("Email"));
+				
 
 			}
 
@@ -58,7 +59,7 @@ public class ClientesDAO implements DAO<Clientes> {
 	public List<Clientes> getAll() {
 		List<Clientes> clientesS = new ArrayList<Clientes>();
 
-		String sql = "select * from clientes";
+		String sql = "select * from cliente";
 
 		// Recupera a conexão com o banco
 		Connection conexao = null;
@@ -81,9 +82,10 @@ public class ClientesDAO implements DAO<Clientes> {
 
 				// atribui campo para atributo
 				clientes.setId(rset.getLong("id"));
-				clientes.setNome(rset.getString("nome"));
-				clientes.setEmail(rset.getString("email"));
-				clientes.setTelefone(rset.getString("telefone"));
+				clientes.setNome(rset.getString("Nome"));
+				clientes.setTelefone(rset.getString("Telefone"));
+				clientes.setEmail(rset.getString("Email"));
+				
 
 				clientesS.add(clientes);
 			}
@@ -109,7 +111,7 @@ public class ClientesDAO implements DAO<Clientes> {
 
 	@Override
 	public int save(Clientes clientes) {
-		String sql = "insert into clientes nome, email ,telefone,)" + " values (?, ?, ?)";
+		String sql = "insert into cliente (nome, telefone, email)" + " values (?, ?, ?)";
 
 		// Recupera a conexão com o banco
 		Connection conexao = null;
@@ -123,8 +125,8 @@ public class ClientesDAO implements DAO<Clientes> {
 
 			stm = conexao.prepareStatement(sql);
 			stm.setString(1, clientes.getNome());
-			stm.setString(2, clientes.getEmail());
-			stm.setString(3, clientes.getTelefone());
+			stm.setString(2, clientes.getTelefone());
+			stm.setString(3, clientes.getEmail());
 
 			stm.execute();
 
@@ -149,7 +151,7 @@ public class ClientesDAO implements DAO<Clientes> {
 
 	@Override
 	public boolean update(Clientes clientes, String[] params) {
-		String sql = "update clientes set nome = ?, email = ?, telefone = ? where id = ?";
+		String sql = "update cliente set nome = ?, telefone = ?, email = ? where id = ?";
 		// Recupera a conexão com o banco
 		Connection conexao = null;
 
@@ -162,8 +164,8 @@ public class ClientesDAO implements DAO<Clientes> {
 
 			stm = conexao.prepareStatement(sql);
 			stm.setString(1, clientes.getNome());
-			stm.setString(2, clientes.getEmail());
-			stm.setString(3, clientes.getTelefone());
+			stm.setString(2, clientes.getTelefone());
+			stm.setString(3, clientes.getEmail());
 			stm.setLong(4, clientes.getId());
 
 			stm.execute();
@@ -190,7 +192,7 @@ public class ClientesDAO implements DAO<Clientes> {
 
 	@Override
 	public boolean delete(Clientes clientes) {
-		String sql = "delete from clientes where id = ?";
+		String sql = "delete from cliente where id = ?";
 		// Recupera a conexão com o banco
 		Connection conexao = null;
 
