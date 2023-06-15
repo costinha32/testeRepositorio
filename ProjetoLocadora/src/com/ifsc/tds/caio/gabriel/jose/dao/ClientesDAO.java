@@ -29,7 +29,7 @@ public class ClientesDAO implements DAO<Clientes> {
 			while (rset.next()) {
 				clientes = new Clientes();
 
-				clientes.setId(rset.getInt("id"));
+				clientes.setId(rset.getLong("id"));
 				clientes.setNome(rset.getNString("nome"));
 				clientes.setEmail(rset.getNString("email"));
 				clientes.setTelefone(rset.getNString("telfone"));
@@ -80,7 +80,7 @@ public class ClientesDAO implements DAO<Clientes> {
 				Clientes clientes = new Clientes();
 
 				// atribui campo para atributo
-				clientes.setId(rset.getInt("id"));
+				clientes.setId(rset.getLong("id"));
 				clientes.setNome(rset.getString("nome"));
 				clientes.setEmail(rset.getString("email"));
 				clientes.setTelefone(rset.getString("telefone"));
@@ -164,7 +164,7 @@ public class ClientesDAO implements DAO<Clientes> {
 			stm.setString(1, clientes.getNome());
 			stm.setString(2, clientes.getEmail());
 			stm.setString(3, clientes.getTelefone());
-			stm.setInt(4, clientes.getId());
+			stm.setLong(4, clientes.getId());
 
 			stm.execute();
 
@@ -202,7 +202,7 @@ public class ClientesDAO implements DAO<Clientes> {
 			conexao = new Conexao().getConnection();
 
 			stm = conexao.prepareStatement(sql);
-			stm.setInt(1, clientes.getId());
+			stm.setLong(1, clientes.getId());
 			stm.execute();
 
 		} catch (Exception e) {

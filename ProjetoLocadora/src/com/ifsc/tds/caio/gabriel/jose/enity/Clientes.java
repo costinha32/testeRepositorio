@@ -2,16 +2,16 @@ package com.ifsc.tds.caio.gabriel.jose.enity;
 
 public class Clientes {
 
-	private int id;
+	private long id;
 	private String nome;
 	private String email;
 	private String telefone;
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setId(long l) {
+		this.id = l;
 	}
 	public String getNome() {
 		return nome;

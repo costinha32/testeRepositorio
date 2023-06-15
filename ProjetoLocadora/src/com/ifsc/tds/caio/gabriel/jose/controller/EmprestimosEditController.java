@@ -124,27 +124,6 @@ public class EmprestimosEditController implements Initializable {
 			return false;
 		}
 	}
-
-	@FXML
-	void onClickDevolucao(ActionEvent event) {
-
-	}
-
-	@FXML
-	void onClickEmprestimo(ActionEvent event) {
-
-	}
-
-	@FXML
-	void onClickFilme(ActionEvent event) {
-
-	}
-
-	@FXML
-	void onClickUsuario(ActionEvent event) {
-
-	}
-
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		this.clienteListaController = new ClienteListaController();
@@ -198,7 +177,6 @@ public class EmprestimosEditController implements Initializable {
 	}
 
 	public boolean isOkClick() {
-		// TODO Auto-generated method stub
 		return okClick;
 	}
 
