@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 
 import com.ifsc.tds.caio.gabriel.jose.dao.FilmesDAO;
 import com.ifsc.tds.caio.gabriel.jose.enity.Filmes;
+import com.peregrinoti.controller.TipoColecaoEditController;
 import com.peregrinoti.controller.TipoColecaoListaController;
 import com.peregrinoti.entity.TipoColecao;
 
@@ -14,7 +15,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar;
@@ -28,6 +32,8 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 public class FilmesListaController implements Initializable {
 
@@ -85,7 +91,7 @@ public class FilmesListaController implements Initializable {
 	private List<Filmes> listaFilmes;
 	private ObservableList<Filmes> observableListaFilmes = FXCollections.observableArrayList();
 	private FilmesDAO filmesDAO;
-	
+
 	public static final String FILMESLISTA_EDITAR = " - Editar";
 	public static final String FILMESLISTA_INCLUIR = " - Incluir";
 
@@ -108,6 +114,7 @@ public class FilmesListaController implements Initializable {
 		}
 
 	}
+
 	@FXML
 	void onClickBtnExcluir(ActionEvent event) {
 		Filmes filmes = this.tbvFilmeLista.getSelectionModel().getSelectedItem();
@@ -138,8 +145,7 @@ public class FilmesListaController implements Initializable {
 	void onClickBtnIncluir(ActionEvent event) {
 		Filmes filmes = new Filmes();
 
-		boolean btnConfirmarClic = this.onShowTelaFilmesListaEditar (filmes,
-				FilmesListaController.FILMESLISTA_INCLUIR);
+		boolean btnConfirmarClic = this.onShowTelaFilmesListaEditar(filmes, FilmesListaController.FILMESLISTA_INCLUIR);
 
 		if (btnConfirmarClic) {
 			this.getFilmesDAO().save(filmes);
@@ -157,9 +163,9 @@ public class FilmesListaController implements Initializable {
 		this.tbvFilmeLista.setItems(this.getObservableListaFilmes());
 	}
 
-	public void selecionarItemTableViewTipoColecoes(TipoColecao tipoColecao) {
-		if (tipoColecao != null) {
-			this.lblNomeValor.setText(tipoColecao.getNome());
+	public void selecionarItemTableViewFilmes(Filmes filmes) {
+		if (filmes != null) {
+			this.lblNomeValor.setText(filmes.getNomeFilme());
 		} else {
 			this.lblNomeValor.setText("");
 		}
@@ -168,17 +174,42 @@ public class FilmesListaController implements Initializable {
 	public boolean onCloseQuery() {
 		Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
 		alerta.setTitle("Pergunta");
-		alerta.setHeaderText("Deseja sair do cadastro de tipo de coleção?");
+		alerta.setHeaderText("Deseja sair do cadastro de filmes?");
 		ButtonType buttonTypeNO = ButtonType.NO;
 		ButtonType buttonTypeYES = ButtonType.YES;
 		alerta.getButtonTypes().setAll(buttonTypeYES, buttonTypeNO);
 		Optional<ButtonType> result = alerta.showAndWait();
-		return result.get() == buttonTypeYES ? true : false;		
+		return result.get() == buttonTypeYES ? true : false;
 	}
+	
+		private boolean onShowTelaFilmesListaEditar(Filmes filmes, String operacao) {
+			try {
+				// carregando o loader
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/ifsc/tds/caio/gabriel/jose/view/FilmesEdit.fxml"));
+				Parent filmesEditXML = loader.load();
 
-	private boolean onShowTelaFilmesListaEditar(Filmes filmes, String filmeslistaEditar) {
-		// TODO Auto-generated method stub
-		return false;
+				// criando uma janela nova
+				Stage janelaFilmesEditar = new Stage();
+				janelaFilmesEditar.setTitle("Cadastro de tipo de coleção" + operacao);
+				janelaFilmesEditar.initModality(Modality.APPLICATION_MODAL);
+				janelaFilmesEditar.resizableProperty().setValue(Boolean.FALSE);
+
+				Scene filmesEditLayout = new Scene(filmesEditXML);
+				janelaFilmesEditar.setScene(filmesEditLayout);
+
+				// carregando o controller e a scene
+				FilmesEditController filmesEditController = loader.getController();
+				filmesEditController.setJanelaFilmesEdit(janelaFilmesEditar);
+				filmesEditController.populaTela(filmes);
+
+				// mostrando a tela
+				janelaFilmesEditar.showAndWait();
+
+				return filmesEditController.isOkClick();
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}		return false;
 	}
 
 	
@@ -219,15 +250,5 @@ public class FilmesListaController implements Initializable {
 		// TODO Auto-generated method stub
 
 	}
-
-	public boolean onCloseQuery() {
-		Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
-		alerta.setTitle("Pergunta");
-		alerta.setHeaderText("Deseja sair do cadastro de filmes?");
-		ButtonType buttonTypeNO = ButtonType.NO;
-		ButtonType buttonTypeYES = ButtonType.YES;
-		alerta.getButtonTypes().setAll(buttonTypeYES, buttonTypeNO);
-		Optional<ButtonType> result = alerta.showAndWait();
-		return result.get() == buttonTypeYES ? true : false;
 	}
-}
+
