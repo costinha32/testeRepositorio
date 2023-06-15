@@ -7,6 +7,8 @@ import java.util.ResourceBundle;
 
 import com.ifsc.tds.caio.gabriel.jose.dao.FilmesDAO;
 import com.ifsc.tds.caio.gabriel.jose.enity.Filmes;
+import com.peregrinoti.controller.TipoColecaoListaController;
+import com.peregrinoti.entity.TipoColecao;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -37,13 +39,13 @@ public class FilmesListaController implements Initializable {
 	private AnchorPane pnlEsquerda;
 
 	@FXML
-	private TableView<?> tbvFilmeLista;
+	private TableView<Filmes> tbvFilmeLista;
 
 	@FXML
-	private TableColumn<?, ?> tbcCodigo;
+	private TableColumn<Filmes, Long> tbcCodigo;
 
 	@FXML
-	private TableColumn<?, ?> tbcNome;
+	private TableColumn<Filmes, String> tbcNome;
 
 	@FXML
 	private AnchorPane pnlDireita;
@@ -87,9 +89,23 @@ public class FilmesListaController implements Initializable {
 
 	@FXML
 	void onClickBtnEditar(ActionEvent event) {
+		Filmes filmes = this.tbvFilmeLista.getSelectionModel().getSelectedItem();
+
+		if (filmes != null) {
+			boolean btnConfirmarClic = this.onShowTelaFilmesListaEditar(filmes,
+					FilmesListaController.FILMESLISTA_EDITAR);
+
+			if (btnConfirmarClic) {
+				this.getFilmesDAO().update(filmes, null);
+				this.carregarTableViewFilmesLsta();
+			}
+		} else {
+			Alert alerta = new Alert(Alert.AlertType.ERROR);
+			alerta.setContentText("Por favor, um filme!");
+			alerta.show();
+		}
 
 	}
-
 	@FXML
 	void onClickBtnExcluir(ActionEvent event) {
 
@@ -99,6 +115,18 @@ public class FilmesListaController implements Initializable {
 	void onClickBtnIncluir(ActionEvent event) {
 
 	}
+
+	private void carregarTableViewFilmesLsta() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private boolean onShowTelaFilmesListaEditar(Filmes filmes, String filmeslistaEditar) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	
 
 	public List<Filmes> getListaFilmes() {
 		return listaFilmes;
