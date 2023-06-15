@@ -137,7 +137,7 @@ public class FilmesListaController implements Initializable {
 	public boolean onCloseQuery() {
 		Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
 		alerta.setTitle("Pergunta");
-		alerta.setHeaderText("Deseja sair do cadastro de revista?");
+		alerta.setHeaderText("Deseja sair do cadastro de filmes?");
 		ButtonType buttonTypeNO = ButtonType.NO;
 		ButtonType buttonTypeYES = ButtonType.YES;
 		alerta.getButtonTypes().setAll(buttonTypeYES, buttonTypeNO);
