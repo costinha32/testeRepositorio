@@ -17,6 +17,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
@@ -25,7 +26,6 @@ import javafx.scene.control.SplitPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.Tooltip;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -99,6 +99,8 @@ public class ClienteListaController implements Initializable {
 
 	private Stage stage;
 
+	private List<Clientes> listaClientes;
+
 	public Stage getStage() {
 		return stage;
 	}
@@ -110,8 +112,6 @@ public class ClienteListaController implements Initializable {
 	public void setObservableListaClientes(ObservableList<Clientes> observableListaClientes) {
 		this.observableListaClientes = observableListaClientes;
 	}
-
-	private List<Clientes> listaClientes;
 
 	public void setClientesDAO(ClientesDAO clientesDAO) {
 		this.clientesDAO = clientesDAO;
@@ -228,8 +228,7 @@ public class ClienteListaController implements Initializable {
 
 	private boolean onShowTelaClienteEditar(Clientes clientes, String clientesEditar) {
 		try {
-			FXMLLoader loader = new FXMLLoader(
-					getClass().getResource("/com/ifsc/tds/caio/gabriel/jose/view/ClientesEdit.fxml"));
+			FXMLLoader loader = new FXMLLoader(	getClass().getResource("/com/ifsc/tds/caio/gabriel/jose/view/ClientesEdit.fxml"));
 			Parent clientesEditXML = loader.load();
 
 			Stage janelaClientesEditar = new Stage();
