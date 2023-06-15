@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ifsc.tds.caio.gabriel.jose.controller.">
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ifsc.tds.caio.gabriel.jose.controller.MenuController">
    <children>
-      <VBox fx:id="pnlPrincipal" layoutX="10.0" layoutY="10.0" prefHeight="400.0" prefWidth="640.0" stylesheets="@../../../../../../../../../../../Documents/CTDS/poo/revista/src/com/peregrinoti/view/menu.css">
+      <VBox fx:id="pnlPrincipal" layoutX="10.0" layoutY="10.0" prefHeight="400.0" prefWidth="640.0">
          <children>
             <MenuBar fx:id="barMenu" VBox.vgrow="NEVER">
                <menus>

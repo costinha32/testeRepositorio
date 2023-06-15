@@ -16,7 +16,8 @@ public class Menu extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			// carregando o loader
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/ifsc/tds/caio/gabriel/jose/view/Menu.fxml"));
+			FXMLLoader loader = new FXMLLoader(
+					getClass().getResource("/com/ifsc/tds/caio/gabriel/jose/view/Menu.fxml"));
 			Parent menuXML = loader.load();
 
 			// carregando o controller e a scene
