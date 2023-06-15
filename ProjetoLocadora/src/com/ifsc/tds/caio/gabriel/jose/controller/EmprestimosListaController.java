@@ -212,7 +212,7 @@ public class EmprestimosListaController implements Initializable {
 		return false;
 	}
 
-	public static boolean onCloseQuery() {
+	public  boolean onCloseQuery() {
 		Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
 		alerta.setTitle("Pergunta");
 		alerta.setHeaderText("Deseja sair do cadastro de empréstimo?");

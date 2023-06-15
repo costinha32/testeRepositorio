@@ -8,8 +8,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="com.ifsc.tds.caio.gabriel.jose.controller.">
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ifsc.tds.caio.gabriel.jose.controller.">
    <children>
       <VBox fx:id="pnlPrincipal" layoutX="10.0" layoutY="10.0" prefHeight="400.0" prefWidth="640.0" stylesheets="@../../../../../../../../../../../Documents/CTDS/poo/revista/src/com/peregrinoti/view/menu.css">
          <children>
@@ -17,9 +16,9 @@
                <menus>
                   <Menu fx:id="mnuCadastro" mnemonicParsing="false" text="Cadastro">
                      <items>
-                        <MenuItem fx:id="mnoCliente" mnemonicParsing="false" onAction="#onClickMnoCaixa" text="Clientes" />
-                        <MenuItem fx:id="mnoFilmes" mnemonicParsing="false" onAction="#onClickMnoTipoColecao" text="Filmes" />
-                        <MenuItem fx:id="mnoEmprestimo" mnemonicParsing="false" onAction="#onClickMnoRevista" text="Empréstimos" />
+                        <MenuItem fx:id="mnoCliente" mnemonicParsing="false" onAction="#onClickMnoCliente" text="Clientes" />
+                        <MenuItem fx:id="mnoFilmes" mnemonicParsing="false" onAction="#onClickMnoFilmes" text="Filmes" />
+                        <MenuItem fx:id="mnoEmprestimo" mnemonicParsing="false" onAction="#onClickMnoEmprestimo" text="Empréstimos" />
                         <SeparatorMenuItem fx:id="sepCadastro" mnemonicParsing="false" />
                         <MenuItem fx:id="mnoSair" mnemonicParsing="false" onAction="#onClickMnoSair" text="Sair" />
                      </items>

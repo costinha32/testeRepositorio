@@ -182,7 +182,10 @@ public class MenuController implements Initializable{
 
 	@FXML
     void onClickMnoSobre(ActionEvent event) {
-
+		Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+		alerta.setTitle("Sobre");
+		alerta.setHeaderText("Sistema desenvolvido por: Caio Piauí, Gab Souza e Faustão Programador - 2023.\nDesenvolvido com JavaFX versão 1.0.");
+		alerta.showAndWait();
     }
 
 	@Override
