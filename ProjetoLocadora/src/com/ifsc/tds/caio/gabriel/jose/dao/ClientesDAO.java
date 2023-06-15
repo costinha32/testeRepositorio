@@ -1,19 +1,19 @@
 package com.ifsc.tds.caio.gabriel.jose.dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.ifsc.tds.caio.gabriel.jose.enity.Clientes;
-import java.sql.PreparedStatement;
-import java.sql.Connection;;
+import com.ifsc.tds.caio.gabriel.jose.enity.Clientes;;
 
 public class ClientesDAO implements DAO<Clientes> {
 
 	@Override
 	public Clientes get(Long id) {
 		Clientes clientes = null;
-		String sql = "select * from cliente where id=?";
+		String sql = "select * from clientes where id=?";
 
 		Connection conexao = null;
 
@@ -32,6 +32,9 @@ public class ClientesDAO implements DAO<Clientes> {
 				clientes.setId(rset.getLong("id"));
 				clientes.setNome(rset.getNString("nome"));
 				clientes.setEmail(rset.getNString("email"));
+				clientes.setTelefone(rset.getNString("telfone"));
+
+
 			}
 
 		} catch (Exception e) {
@@ -81,6 +84,8 @@ public class ClientesDAO implements DAO<Clientes> {
 				clientes.setId(rset.getLong("id"));
 				clientes.setNome(rset.getString("nome"));
 				clientes.setEmail(rset.getString("email"));
+				clientes.setTelefone(rset.getString("telefone"));
+
 
 				clientesS.add(clientes);
 			}
@@ -106,7 +111,7 @@ public class ClientesDAO implements DAO<Clientes> {
 
 	@Override
 	public int save(Clientes clientes) {
-		String sql = "insert into clientes nome, email)" + " values (?, ?)";
+		String sql = "insert into clientes nome, email ,telefone,)" + " values (?, ?, ?)";
 
 		// Recupera a conexão com o banco
 		Connection conexao = null;
@@ -121,6 +126,8 @@ public class ClientesDAO implements DAO<Clientes> {
 			stm = conexao.prepareStatement(sql);
 			stm.setString(1, clientes.getNome());
 			stm.setString(2, clientes.getEmail());
+			stm.setString(3, clientes.getTelefone());
+
 
 			stm.execute();
 
@@ -145,7 +152,7 @@ public class ClientesDAO implements DAO<Clientes> {
 
 	@Override
 	public boolean update(Clientes clientes, String[] params) {
-		String sql = "update clientes set nome = ?, email = ? where id = ";
+		String sql = "update clientes set nome = ?, email = ?, telefone = ? where id = ";
 		// Recupera a conexão com o banco
 		Connection conexao = null;
 
@@ -159,7 +166,8 @@ public class ClientesDAO implements DAO<Clientes> {
 			stm = conexao.prepareStatement(sql);
 			stm.setString(1, clientes.getNome());
 			stm.setString(2, clientes.getEmail());
-			stm.setLong(3, clientes.getId());
+			stm.setString(3, clientes.getTelefone());
+			stm.setLong(4, clientes.getId());
 
 			stm.execute();
 
