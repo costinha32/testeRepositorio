@@ -1,8 +1,9 @@
 create table Clientes (
 id int (100) primary key auto_increment not null,
 nome varchar (100) not null,
-email varchar (100) not null,
-telefone varchar (100) not null 
+telefone varchar (100) not null,
+email varchar (100) not null
+
 
 );
 

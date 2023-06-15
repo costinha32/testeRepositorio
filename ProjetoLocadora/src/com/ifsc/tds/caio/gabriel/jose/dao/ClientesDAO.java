@@ -13,7 +13,7 @@ public class ClientesDAO implements DAO<Clientes> {
 	@Override
 	public Clientes get(Long id) {
 		Clientes clientes = null;
-		String sql = "select * from cliente where id=?";
+		String sql = "select * from clientes where id = ?";
 
 		Connection conexao = null;
 
@@ -59,7 +59,7 @@ public class ClientesDAO implements DAO<Clientes> {
 	public List<Clientes> getAll() {
 		List<Clientes> clientesS = new ArrayList<Clientes>();
 
-		String sql = "select * from cliente";
+		String sql = "select * from clientes";
 
 		// Recupera a conexão com o banco
 		Connection conexao = null;
@@ -111,7 +111,7 @@ public class ClientesDAO implements DAO<Clientes> {
 
 	@Override
 	public int save(Clientes clientes) {
-		String sql = "insert into cliente (nome, telefone, email)" + " values (?, ?, ?)";
+		String sql = "insert into clientes (nome, telefone, email)" + " values (?, ?, ?)";
 
 		// Recupera a conexão com o banco
 		Connection conexao = null;
@@ -151,7 +151,7 @@ public class ClientesDAO implements DAO<Clientes> {
 
 	@Override
 	public boolean update(Clientes clientes, String[] params) {
-		String sql = "update cliente set nome = ?, telefone = ?, email = ? where id = ?";
+		String sql = "update clientes set nome = ?, telefone = ?, email = ? where idCliente = ?";
 		// Recupera a conexão com o banco
 		Connection conexao = null;
 
@@ -192,7 +192,7 @@ public class ClientesDAO implements DAO<Clientes> {
 
 	@Override
 	public boolean delete(Clientes clientes) {
-		String sql = "delete from cliente where id = ?";
+		String sql = "delete from clientes where id = ?";
 		// Recupera a conexão com o banco
 		Connection conexao = null;
 

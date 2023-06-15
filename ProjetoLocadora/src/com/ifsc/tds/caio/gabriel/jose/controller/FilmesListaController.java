@@ -7,9 +7,6 @@ import java.util.ResourceBundle;
 
 import com.ifsc.tds.caio.gabriel.jose.dao.FilmesDAO;
 import com.ifsc.tds.caio.gabriel.jose.enity.Filmes;
-import com.peregrinoti.controller.TipoColecaoEditController;
-import com.peregrinoti.controller.TipoColecaoListaController;
-import com.peregrinoti.entity.TipoColecao;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
