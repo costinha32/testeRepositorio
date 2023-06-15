@@ -120,7 +120,7 @@ public class FilmesListaController implements Initializable {
 
 			Alert alerta = new Alert(AlertType.CONFIRMATION);
 			alerta.setTitle("Pergunta");
-			alerta.setHeaderText("Confirma a exclusão do filmes?\n" + filmes.getNomeFilme());
+			alerta.setHeaderText("Confirma a exclusão do filme?\n" + filmes.getNomeFilme());
 
 			ButtonType botaoNao = ButtonType.NO;
 			ButtonType botaoSim = ButtonType.YES;
@@ -153,7 +153,7 @@ public class FilmesListaController implements Initializable {
 
 	private void carregarTableViewFilmesLsta() {
 		this.tbcCodigo.setCellValueFactory(new PropertyValueFactory<>("id"));
-		this.tbcNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
+		this.tbcNome.setCellValueFactory(new PropertyValueFactory<>("nomeFilme"));
 
 		this.setListaFilmes(this.getFilmesDAO().getAll());
 		this.setObservableListaFilmes(FXCollections.observableArrayList(this.getListaFilmes()));
@@ -178,38 +178,38 @@ public class FilmesListaController implements Initializable {
 		Optional<ButtonType> result = alerta.showAndWait();
 		return result.get() == buttonTypeYES ? true : false;
 	}
-	
-		private boolean onShowTelaFilmesListaEditar(Filmes filmes, String operacao) {
-			try {
-				// carregando o loader
-				FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/ifsc/tds/caio/gabriel/jose/view/FilmesEdit.fxml"));
-				Parent filmesEditXML = loader.load();
 
-				// criando uma janela nova
-				Stage janelaFilmesEditar = new Stage();
-				janelaFilmesEditar.setTitle("Cadastro de tipo de coleção" + operacao);
-				janelaFilmesEditar.initModality(Modality.APPLICATION_MODAL);
-				janelaFilmesEditar.resizableProperty().setValue(Boolean.FALSE);
+	private boolean onShowTelaFilmesListaEditar(Filmes filmes, String operacao) {
+		try {
+			// carregando o loader
+			FXMLLoader loader = new FXMLLoader(
+					getClass().getResource("/com/ifsc/tds/caio/gabriel/jose/view/FilmesEdit.fxml"));
+			Parent filmesEditXML = loader.load();
 
-				Scene filmesEditLayout = new Scene(filmesEditXML);
-				janelaFilmesEditar.setScene(filmesEditLayout);
+			// criando uma janela nova
+			Stage janelaFilmesEditar = new Stage();
+			janelaFilmesEditar.setTitle("Cadastro de filme" + operacao);
+			janelaFilmesEditar.initModality(Modality.APPLICATION_MODAL);
+			janelaFilmesEditar.resizableProperty().setValue(Boolean.FALSE);
 
-				// carregando o controller e a scene
-				FilmesEditController filmesEditController = loader.getController();
-				filmesEditController.setJanelaFilmesEdit(janelaFilmesEditar);
-				filmesEditController.populaTela(filmes);
+			Scene filmesEditLayout = new Scene(filmesEditXML);
+			janelaFilmesEditar.setScene(filmesEditLayout);
 
-				// mostrando a tela
-				janelaFilmesEditar.showAndWait();
+			// carregando o controller e a scene
+			FilmesEditController filmesEditController = loader.getController();
+			filmesEditController.setJanelaFilmesEdit(janelaFilmesEditar);
+			filmesEditController.populaTela(filmes);
 
-				return filmesEditController.isOkClick();
+			// mostrando a tela
+			janelaFilmesEditar.showAndWait();
 
-			} catch (Exception e) {
-				e.printStackTrace();
-			}		return false;
+			return filmesEditController.isOkClick();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
-
-	
 
 	public List<Filmes> getListaFilmes() {
 		return listaFilmes;
@@ -247,5 +247,4 @@ public class FilmesListaController implements Initializable {
 		// TODO Auto-generated method stub
 
 	}
-	}
-
+}

@@ -54,8 +54,10 @@ public class FilmesEditController implements Initializable {
 	void onClickBtnOK(ActionEvent event) {
 		if (validarCampos()) {
 			this.filmes.setNomeFilme(this.txtNome.getText());
+			
 			this.okClick = true;
 			this.getJanelaFilmesEdit().close();
+			System.out.println("Botao ok foi");
 		}
 
 	}

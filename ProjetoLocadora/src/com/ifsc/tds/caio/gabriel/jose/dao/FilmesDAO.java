@@ -12,7 +12,7 @@ public class FilmesDAO implements DAO<Filmes> {
 		
 		public Filmes get(Long id) {
 			Filmes filmes = null;
-			String sql = "select * from filmes where id=?";
+			String sql = "select * from filmes where id = ?";
 			
 			Connection conexao = null;
 			
@@ -104,7 +104,7 @@ public class FilmesDAO implements DAO<Filmes> {
 
 		@Override
 		public int save(Filmes filmes) {
-			String sql = "insert into filmes nomeFilme) "+ "values(?)";
+			String sql = "insert into filmes (nomeFilme) "+ "values(?)";
 			 
 			// Recupera a conexão com o banco
 			Connection conexao = null;
@@ -183,7 +183,7 @@ public class FilmesDAO implements DAO<Filmes> {
 		@Override
 		public boolean delete(Filmes filmes) {
 			
-			String sql = "delete from clientes where id = ?";
+			String sql = "delete from filmes where id = ?";
 			// Recupera a conexão com o banco
 			Connection conexao = null;
 

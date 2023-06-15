@@ -68,7 +68,6 @@ public class ClienteEditController implements Initializable {
 			this.clientes.setNome(this.txtNome.getText());
 			this.clientes.setTelefone(this.txtTelefone.getText());
 			this.clientes.setEmail(this.txtEmail.getText());
-			
 
 			this.okClick = true;
 			this.getJanelaClienteEdit().close();
@@ -88,7 +87,6 @@ public class ClienteEditController implements Initializable {
 		if (this.txtEmail.getText() == null || this.txtEmail.getText().trim().length() == 0) {
 			mensagemErros += "Informe o email!\n";
 		}
-		
 
 		if (mensagemErros.length() == 0) {
 			return true;
@@ -114,11 +112,10 @@ public class ClienteEditController implements Initializable {
 
 	public void populaTela(Clientes clientes) {
 		this.clientes = clientes;
-		
+
 		this.txtNome.setText(clientes.getNome());
 		this.txtTelefone.setText(clientes.getTelefone());
 		this.txtEmail.setText(clientes.getEmail());
-		
 
 	}
 
