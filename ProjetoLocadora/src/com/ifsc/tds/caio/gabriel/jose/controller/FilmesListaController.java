@@ -81,6 +81,9 @@ public class FilmesListaController implements Initializable {
 	private List<Filmes> listaFilmes;
 	private ObservableList<Filmes> observableListaFilmes = FXCollections.observableArrayList();
 	private FilmesDAO filmesDAO;
+	
+	public static final String FILMESLISTA_EDITAR = " - Editar";
+	public static final String FILMESLISTA_INCLUIR = " - Incluir";
 
 	@FXML
 	void onClickBtnEditar(ActionEvent event) {
