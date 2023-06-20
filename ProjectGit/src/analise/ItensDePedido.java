@@ -25,8 +25,6 @@ public class ItensDePedido {
 	public double calcularSubTotal() {
 		double subtotal;
 		
-		subtotal =  + 	this.produto;
-		
 		return subtotal;
 	}
 }
