@@ -6,6 +6,8 @@ public class Produto {
 	private String descricao;
 	private int quantidade;
 	private double valor;
+	
+	
 	public long getCodigo() {
 		return codigo;
 	}

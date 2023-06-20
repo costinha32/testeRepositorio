@@ -128,7 +128,11 @@ public class EmprestimosListaController implements Initializable {
 			}
 		} else {
 			Alert alerta = new Alert(Alert.AlertType.ERROR);
-			alerta.setContentText("Por favor, escolha um empréstimo na tabela!");
+
+			//alerta.setContentText("Por favor, escolha um empréstimo na tabela!");
+
+			alerta.setContentText("Por favor, escolha um filme na tabela!");
+
 			alerta.show();
 		}
 	}

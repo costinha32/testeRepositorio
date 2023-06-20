@@ -1,5 +1,6 @@
 package analise;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Pedido {
@@ -7,6 +8,8 @@ public class Pedido {
 	private long numero;
 	private Date data;
 	private double valorTotal;
+	private ArrayList<ItensDePedido> itens;
+	private FormaDePagamento pagamento;
 	
 	public long getNumero() {
 		return numero;
@@ -28,8 +31,6 @@ public class Pedido {
 	}
 	
 	public boolean calcularTotal() {
-		
-		
 		
 		return calcularTotal();
 	}

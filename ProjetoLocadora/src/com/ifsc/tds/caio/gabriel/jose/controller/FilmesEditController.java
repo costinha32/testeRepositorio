@@ -1,5 +1,6 @@
 package com.ifsc.tds.caio.gabriel.jose.controller;
 
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -54,18 +55,17 @@ public class FilmesEditController implements Initializable {
 	void onClickBtnOK(ActionEvent event) {
 		if (validarCampos()) {
 			this.filmes.setNomeFilme(this.txtNome.getText());
-			
+
 			this.okClick = true;
 			this.getJanelaFilmesEdit().close();
-			System.out.println("Botao ok foi");
 		}
 
 	}
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
 	}
-
 
 	public Stage getJanelaFilmesEdit() {
 		return janelaFilmesEdit;
@@ -85,7 +85,6 @@ public class FilmesEditController implements Initializable {
 
 	}
 
-	
 	public Filmes getFilmes() {
 		return filmes;
 	}
