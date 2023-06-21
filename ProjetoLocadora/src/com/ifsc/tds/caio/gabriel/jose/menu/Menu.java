@@ -1,6 +1,5 @@
 package com.ifsc.tds.caio.gabriel.jose.menu;
 
-
 import com.ifsc.tds.caio.gabriel.jose.controller.MenuController;
 
 import javafx.application.Application;
@@ -8,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
@@ -16,7 +16,9 @@ public class Menu extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			// carregando o loader
+			// Set the application icon.
+			
+						// carregando o loader
 			FXMLLoader loader = new FXMLLoader(
 					getClass().getResource("/com/ifsc/tds/caio/gabriel/jose/view/Menu.fxml"));
 			Parent menuXML = loader.load();
@@ -26,6 +28,7 @@ public class Menu extends Application {
 			Scene menuLayout = new Scene(menuXML);
 
 			Stage menuJanela = new Stage();
+			menuJanela.getIcons().add(new Image("file: Images/vhs.png"));
 			menuJanela.initModality(Modality.APPLICATION_MODAL);
 			menuJanela.resizableProperty().setValue(Boolean.FALSE);
 			menuJanela.setScene(menuLayout);
