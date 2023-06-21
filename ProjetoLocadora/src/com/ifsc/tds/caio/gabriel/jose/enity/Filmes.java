@@ -1,8 +1,10 @@
 package com.ifsc.tds.caio.gabriel.jose.enity;
 
 public class Filmes {
+
 	
 	private Long id;
+
 	private String nomeFilme;
 
 	public String getNomeFilme() {
@@ -27,6 +29,8 @@ public class Filmes {
 		return this.nomeFilme;
 	}
 
-
+	public String tostring() {
+		return this.nomeFilme;
+	}
 
 }
