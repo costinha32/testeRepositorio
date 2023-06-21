@@ -131,7 +131,7 @@ public class EmprestimosDAO  implements DAO<Emprestimos>{
 
 	@Override
 	public int save(Emprestimos emprestimos) {
-		String sql = "insert into emprestimos (dataEmpre, dataDev, descr, fk_idCliente, fk_idFilmes)" + " values (?, ?, ?, ?, ?)";
+		String sql = "insert into emprestimos (nomeFilme, dataEmpre, dataDev, descr, fk_idCliente, fk_idFilmes)" + " values (?, ?, ?, ?, ?, ?)";
 
 		// Recupera a conexão com o banco
 		Connection conexao = null;
@@ -173,7 +173,7 @@ public class EmprestimosDAO  implements DAO<Emprestimos>{
 
 	@Override
 	public boolean update(Emprestimos emprestimos, String[] params) {
-		String sql = "update emprestimos set  dataEmpre = ?, dataDev = ?, descr = ?, fk_idCliente = ?, fk_idFilmes = ? where id = ?";
+		String sql = "update emprestimos set nomeFilme = ?, dataEmpre = ?, dataDev = ?, descr = ?, fk_idCliente = ?, fk_idFilmes = ? where id = ?";
 
 		// Recupera a conexão com o banco
 		Connection conexao = null;

@@ -29,8 +29,4 @@ public class Filmes {
 		return this.nomeFilme;
 	}
 
-	public String tostring() {
-		return this.nomeFilme;
-	}
-
 }
