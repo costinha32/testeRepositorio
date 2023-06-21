@@ -16,11 +16,9 @@ public class Menu extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			// Set the application icon.
-			
-						// carregando o loader
-			FXMLLoader loader = new FXMLLoader(
-					getClass().getResource("/com/ifsc/tds/caio/gabriel/jose/view/Menu.fxml"));
+
+			// carregando o loader
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/ifsc/tds/caio/gabriel/jose/view/Menu.fxml"));
 			Parent menuXML = loader.load();
 
 			// carregando o controller e a scene
@@ -28,7 +26,8 @@ public class Menu extends Application {
 			Scene menuLayout = new Scene(menuXML);
 
 			Stage menuJanela = new Stage();
-			menuJanela.getIcons().add(new Image("file: Images/vhs.png"));
+			Image icon = new Image(getClass().getResourceAsStream("/resource/imagens/vhs.png"));
+			menuJanela.getIcons().add(icon);
 			menuJanela.initModality(Modality.APPLICATION_MODAL);
 			menuJanela.resizableProperty().setValue(Boolean.FALSE);
 			menuJanela.setScene(menuLayout);
