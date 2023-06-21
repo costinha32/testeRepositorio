@@ -54,12 +54,12 @@
                   </GridPane>
                   <ButtonBar fx:id="barBotoes" layoutX="60.0" layoutY="340.0" prefHeight="40.0" prefWidth="200.0">
                     <buttons>
-                      <Button fx:id="btnInclur" mnemonicParsing="false" onAction="#onClickBtnIncluir" stylesheets="@../../../../../itds/caio/gabriel/jose/menu/application.css" text="Incluir">
+                      <Button fx:id="btnInclur" mnemonicParsing="false" onAction="#onClickBtnIncluir" style="-fx-border-radius: 25px;" stylesheets="@../../../../../itds/caio/gabriel/jose/menu/application.css" text="Incluir">
                            <tooltip>
                               <Tooltip fx:id="tlpIncluir" text="Incluir" />
                            </tooltip>
                         </Button>
-                        <Button fx:id="btnEditar" mnemonicParsing="false" onAction="#onClickBtnEditar" text="Editar">
+                        <Button fx:id="btnEditar" mnemonicParsing="false" onAction="#onClickBtnEditar" stylesheets="@../../../../../itds/caio/gabriel/jose/menu/application.css" text="Editar">
                            <tooltip>
                               <Tooltip fx:id="tlpEditar" text="Editar" />
                            </tooltip>

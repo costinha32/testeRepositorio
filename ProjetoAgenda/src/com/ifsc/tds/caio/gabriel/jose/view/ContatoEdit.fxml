@@ -8,8 +8,9 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="pnlPrincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="323.0" prefWidth="455.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ifsc.tds.caio.gabriel.jose.controller.ContatoEditController">
+<AnchorPane fx:id="pnlPrincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="323.0" prefWidth="455.0" styleClass="AnchorPane" stylesheets="@../../../../../itds/caio/gabriel/jose/menu/application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ifsc.tds.caio.gabriel.jose.controller.ContatoEditController">
    <children>
       <GridPane fx:id="pnlDados" layoutX="16.0" layoutY="53.0" prefHeight="167.0" prefWidth="425.0">
         <columnConstraints>
@@ -22,20 +23,29 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label fx:id="lblNome" text="Nome">
+            <Label fx:id="lblNome" styleClass="Label" stylesheets="@../../../../../itds/caio/gabriel/jose/menu/application.css" text="Nome" textFill="WHITE">
                <GridPane.margin>
                   <Insets left="10.0" />
                </GridPane.margin>
+               <font>
+                  <Font name="Courier New Bold" size="21.0" />
+               </font>
             </Label>
-            <Label fx:id="lblTelefone" text="Telefone" GridPane.rowIndex="1">
+            <Label fx:id="lblTelefone" styleClass="Label" stylesheets="@../../../../../itds/caio/gabriel/jose/menu/application.css" text="Telefone" textFill="WHITE" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets left="10.0" />
                </GridPane.margin>
+               <font>
+                  <Font name="Courier New Bold" size="21.0" />
+               </font>
             </Label>
-            <Label fx:id="lblEmail" text="E-mail" GridPane.rowIndex="2">
+            <Label fx:id="lblEmail" styleClass="Label" stylesheets="@../../../../../itds/caio/gabriel/jose/menu/application.css" text="E-mail" textFill="WHITE" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets left="10.0" />
                </GridPane.margin>
+               <font>
+                  <Font name="Courier New Bold" size="21.0" />
+               </font>
             </Label>
             <TextField fx:id="txtNome" prefHeight="25.0" prefWidth="260.0" GridPane.columnIndex="1">
                <GridPane.margin>
