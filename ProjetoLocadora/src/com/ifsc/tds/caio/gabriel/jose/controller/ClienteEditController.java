@@ -71,6 +71,7 @@ public class ClienteEditController implements Initializable {
 
 			this.okClick = true;
 			this.getJanelaClienteEdit().close();
+			System.out.println("Loucuara");
 		}
 	}
 
