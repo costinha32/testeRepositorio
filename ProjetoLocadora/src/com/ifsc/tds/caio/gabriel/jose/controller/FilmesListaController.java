@@ -102,7 +102,7 @@ public class FilmesListaController implements Initializable {
 
 			if (btnConfirmarClic) {
 				this.getFilmesDAO().update(filmes, null);
-				this.carregarTableViewFilmesLsta();
+				this.carregarTableViewFilmesLista();
 			}
 		} else {
 			Alert alerta = new Alert(Alert.AlertType.ERROR);
@@ -129,7 +129,7 @@ public class FilmesListaController implements Initializable {
 
 			if (resultado.get() == botaoSim) {
 				this.getFilmesDAO().delete(filmes);
-				this.carregarTableViewFilmesLsta();
+				this.carregarTableViewFilmesLista();
 			}
 		} else {
 			Alert alerta = new Alert(Alert.AlertType.ERROR);
@@ -146,12 +146,12 @@ public class FilmesListaController implements Initializable {
 
 		if (btnConfirmarClic) {
 			this.getFilmesDAO().save(filmes);
-			this.carregarTableViewFilmesLsta();
+			this.carregarTableViewFilmesLista();
 		}
 
 	}
 
-	private void carregarTableViewFilmesLsta() {
+	private void carregarTableViewFilmesLista() {
 		this.tbcCodigo.setCellValueFactory(new PropertyValueFactory<>("id"));
 		this.tbcNome.setCellValueFactory(new PropertyValueFactory<>("nomeFilme"));
 

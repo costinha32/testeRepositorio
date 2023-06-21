@@ -154,6 +154,7 @@ public class MenuController implements Initializable{
 			this.stage.show();
 		} catch (Exception e) {
 			e.printStackTrace();
+			System.out.println("chegando ate aqui");
 		}
     	
     }
