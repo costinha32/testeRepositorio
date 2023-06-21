@@ -53,8 +53,8 @@ public class EmprestimosDAO  implements DAO<Emprestimos>{
 				emprestimos.setDesc(rset.getString("desc"));
 	
 				// buscando as chaves estrangeiras
-				emprestimos.setClientes(this.clientesDAO.get(rset.getLong("clientes_id")));
-				emprestimos.setFilmes(this.filmesDAO.get(rset.getLong("filmes_id")));
+				emprestimos.setClientes(this.clientesDAO.get(rset.getLong("fk_idCliente")));
+				emprestimos.setFilmes(this.filmesDAO.get(rset.getLong("fk_idFilmes")));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -105,8 +105,8 @@ public class EmprestimosDAO  implements DAO<Emprestimos>{
 				emprestimos.setDataDev(rset.getDate("dataDev"));
 
 				// buscando as chaves estrangeiras
-				emprestimos.setClientes(this.clientesDAO.get(rset.getLong("clientes_id")));
-				emprestimos.setFilmes(this.filmesDAO.get(rset.getLong("filmes_id")));
+				emprestimos.setClientes(this.clientesDAO.get(rset.getLong("fk_idCliente")));
+				emprestimos.setFilmes(this.filmesDAO.get(rset.getLong("fk_idFilmes")));
 
 				emprestimo.add(emprestimos);
 			}
