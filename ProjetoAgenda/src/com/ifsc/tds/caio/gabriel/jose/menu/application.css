@@ -10,7 +10,7 @@
 	-fx-background-radius: 25px;
 }
 .TableView {
-	-fx-backgroung: linear-gradiente(to left, rgb(20.0, 147.0, 220.0), rgb(17.0,54.0,71.0));
+	-fx-background: linear-gradiente(to left, rgb(20.0, 147.0, 220.0), rgb(17.0,54.0,71.0));
 }
 .Label {
 	-fx-fill: white;

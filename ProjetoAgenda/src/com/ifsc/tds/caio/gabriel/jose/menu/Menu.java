@@ -1,4 +1,4 @@
-package com.ifsc.itds.caio.gabriel.jose.menu;
+package com.ifsc.tds.caio.gabriel.jose.menu;
 
 import com.ifsc.tds.caio.gabriel.jose.controller.ContatoListaController;
 
