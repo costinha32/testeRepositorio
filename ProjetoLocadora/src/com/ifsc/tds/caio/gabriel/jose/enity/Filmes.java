@@ -1,7 +1,7 @@
 package com.ifsc.tds.caio.gabriel.jose.enity;
 
 public class Filmes {
-	
+
 	private long id;
 	private String nomeFilme;
 
@@ -21,6 +21,8 @@ public class Filmes {
 		this.id = id;
 	}
 
-
+	public String tostring() {
+		return this.nomeFilme;
+	}
 
 }

@@ -31,5 +31,9 @@ public class Clientes {
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
+	
+	public String tostring(){
+		return this.nome;
+	}
 }	
 	
