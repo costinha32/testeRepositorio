@@ -2,7 +2,7 @@ package com.ifsc.tds.caio.gabriel.jose.enity;
 
 public class Filmes {
 	
-	private long id;
+	private Long id;
 	private String nomeFilme;
 
 	public String getNomeFilme() {
@@ -13,13 +13,15 @@ public class Filmes {
 		this.nomeFilme = nomeFilme;
 	}
 
-	public long getId() {
+	
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
+
 	@Override
 	public String toString() {
 		return this.nomeFilme;
