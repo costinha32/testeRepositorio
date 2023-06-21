@@ -1,12 +1,12 @@
 package com.ifsc.tds.caio.gabriel.jose.dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.ifsc.tds.caio.gabriel.jose.enity.Filmes;
-import java.sql.PreparedStatement;
-import java.sql.Connection;
 
 public class FilmesDAO implements DAO<Filmes> {
 		

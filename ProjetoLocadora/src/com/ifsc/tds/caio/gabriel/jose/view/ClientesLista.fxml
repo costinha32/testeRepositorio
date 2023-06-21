@@ -42,9 +42,9 @@
                   <Label text="Nome" />
                   <Label fx:id="lblTelefone" text="Telefone" GridPane.rowIndex="1" />
                   <Label fx:id="lblEmail" text="E-mail" GridPane.rowIndex="2" />
-                  <Label fx:id="lblNomeValor" prefHeight="21.0" prefWidth="0.0" GridPane.columnIndex="1" />
-                  <Label fx:id="lblTelefoneValor" prefHeight="21.0" prefWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Label fx:id="lblEmailValor" prefHeight="21.0" prefWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Label fx:id="lblNomeValor" GridPane.columnIndex="1" />
+                  <Label fx:id="lblTelefoneValor" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label fx:id="lblEmailValor" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                </children>
             </GridPane>
             <ButtonBar fx:id="barBotoes" layoutX="117.0" layoutY="337.0" prefHeight="47.0" prefWidth="244.0">
