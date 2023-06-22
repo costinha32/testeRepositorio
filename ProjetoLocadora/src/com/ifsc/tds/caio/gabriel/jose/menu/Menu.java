@@ -24,14 +24,16 @@ public class Menu extends Application {
 			// carregando o controller e a scene
 			MenuController menuController = loader.getController();
 			Scene menuLayout = new Scene(menuXML);
+			
+			
 
 			Stage menuJanela = new Stage();
-			//Image icon = new Image(getClass().getResourceAsStream("file: /resource/imagens/vhs.png"));
-			//menuJanela.getIcons().add(icon);
+			Image icon = new Image("file:resource/imagens/vhs.png");
+			menuJanela.getIcons().add(icon);			
 			menuJanela.initModality(Modality.APPLICATION_MODAL);
 			menuJanela.resizableProperty().setValue(Boolean.FALSE);
 			menuJanela.setScene(menuLayout);
-			menuJanela.setTitle("Menu do sistema");
+			menuJanela.setTitle("Menu da Locadora");
 
 			// atribuindo evento para fechar janela
 			menuJanela.setOnCloseRequest(e -> {

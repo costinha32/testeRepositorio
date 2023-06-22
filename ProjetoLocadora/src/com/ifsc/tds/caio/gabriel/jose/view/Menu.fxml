@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ifsc.tds.caio.gabriel.jose.controller.MenuController">
+<AnchorPane styleClass="AnchorPane" stylesheets="@../menu/application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ifsc.tds.caio.gabriel.jose.controller.MenuController">
    <children>
       <VBox fx:id="pnlPrincipal" layoutX="10.0" layoutY="10.0" prefHeight="400.0" prefWidth="640.0">
          <children>
@@ -30,7 +30,7 @@
                   </Menu>
                </menus>
             </MenuBar>
-            <AnchorPane fx:id="pnlMeio" maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS" />
+            <AnchorPane fx:id="pnlMeio" maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" styleClass="AnchorPane" stylesheets="@../menu/application.css" VBox.vgrow="ALWAYS" />
             <HBox fx:id="pnlStatuBar" alignment="CENTER_RIGHT" prefHeight="24.0" prefWidth="640.0" />
          </children>
       </VBox>
