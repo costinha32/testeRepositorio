@@ -18,6 +18,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
@@ -54,6 +55,13 @@ public class EmprestimosEditController implements Initializable {
 	@FXML
 	private DatePicker dateEmprestimo;
 
+    @FXML
+    private Label lblDescricao;
+
+    @FXML
+    private TextField txtDescricao;
+
+
 	@FXML
 	private GridPane pnlButton;
 
@@ -83,6 +91,7 @@ public class EmprestimosEditController implements Initializable {
 		if (validarCampos()) {
 			this.emprestimos.setDataEmpre(Date.valueOf(this.dateEmprestimo.getValue()));
 			this.emprestimos.setDataDev(Date.valueOf(this.dateDevolucao.getValue()));
+			this.emprestimos.setDesc(this.txtDescricao.getText());
 			this.emprestimos.setClientes(this.cboUsuario.getSelectionModel().getSelectedItem());
 			this.emprestimos.setFilmes(this.cboFilme.getSelectionModel().getSelectedItem());
 
@@ -150,6 +159,8 @@ public class EmprestimosEditController implements Initializable {
 	}
 	public void populaTela(Emprestimos emprestimos) {
 		this.emprestimos = emprestimos;
+		
+		this.txtDescricao.setText(this.emprestimos.getDescr());
 
 		
 		if (this.emprestimos.getDataEmpre() != null) {

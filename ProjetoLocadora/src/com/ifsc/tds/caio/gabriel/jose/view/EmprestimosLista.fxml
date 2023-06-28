@@ -46,6 +46,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
                         <Label fx:id="lblDataEmpre" text="Data de empréstimo" textFill="WHITE">
@@ -64,22 +65,32 @@
                            <font>
                               <Font name="Courier New" size="1165.0" />
                            </font></Label>
-                        <Label fx:id="lblCliente" text="Cliente" textFill="WHITE" GridPane.rowIndex="2">
+                        <Label fx:id="lblCliente" text="Cliente" textFill="WHITE" GridPane.rowIndex="3">
                            <font>
                               <Font name="Courier New Bold" size="16.0" />
                            </font></Label>
-                        <Label fx:id="lblClienteValor" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <Label fx:id="lblClienteValor" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3">
                            <font>
                               <Font name="Courier New" size="1165.0" />
                            </font></Label>
-                        <Label fx:id="lblFilme" text="Filme" textFill="WHITE" GridPane.rowIndex="3">
+                        <Label fx:id="lblFilme" text="Filme" textFill="WHITE" GridPane.rowIndex="4">
                            <font>
                               <Font name="Courier New Bold" size="16.0" />
                            </font></Label>
-                        <Label fx:id="lblFilmeValor" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                        <Label fx:id="lblFilmeValor" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="4">
                            <font>
                               <Font name="Courier New" size="16.0" />
                            </font></Label>
+                        <Label fx:id="lblDescricao" text="Descrição" textFill="WHITE" GridPane.rowIndex="2">
+                           <font>
+                              <Font name="Courier New Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblDescricaoValor" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <font>
+                              <Font name="Courier New" size="1165.0" />
+                           </font>
+                        </Label>
                      </children>
                   </GridPane>
                   <ButtonBar fx:id="barBotoes" layoutX="60.0" layoutY="340.0" prefHeight="40.0" prefWidth="200.0">

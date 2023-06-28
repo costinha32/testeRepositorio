@@ -50,6 +50,7 @@ public class EmprestimosDAO  implements DAO<Emprestimos>{
 				emprestimos.setId(rset.getLong("id"));
 				emprestimos.setDataEmpre(rset.getDate("dataEmpre"));
 				emprestimos.setDataDev(rset.getDate("dataDev"));
+				emprestimos.setDesc(rset.getString("descr"));
 	
 				// buscando as chaves estrangeiras
 				emprestimos.setClientes(this.clientesDAO.get(rset.getLong("fk_idCliente")));
@@ -102,6 +103,7 @@ public class EmprestimosDAO  implements DAO<Emprestimos>{
 				emprestimos.setId(rset.getLong("id"));
 				emprestimos.setDataEmpre(rset.getDate("dataEmpre"));
 				emprestimos.setDataDev(rset.getDate("dataDev"));
+				emprestimos.setDesc(rset.getString("descr"));
 
 				// buscando as chaves estrangeiras
 				emprestimos.setClientes(this.clientesDAO.get(rset.getLong("fk_idCliente")));
@@ -130,7 +132,7 @@ public class EmprestimosDAO  implements DAO<Emprestimos>{
 
 	@Override
 	public int save(Emprestimos emprestimos) {
-		String sql = "insert into emprestimos (dataEmpre, dataDev, fk_idCliente, fk_idFilmes)" + " values (?, ?, ?, ?)";
+		String sql = "insert into emprestimos (dataEmpre, dataDev, descr, fk_idCliente, fk_idFilmes)" + " values (?, ?, ?, ?, ?)";
 
 		// Recupera a conexão com o banco
 		Connection conexao = null;
@@ -145,8 +147,10 @@ public class EmprestimosDAO  implements DAO<Emprestimos>{
 			stm = conexao.prepareStatement(sql);
 			stm.setDate(1, emprestimos.getDataEmpre());
 			stm.setDate(2, emprestimos.getDataDev());
-			stm.setLong(3, emprestimos.getClientes().getId());
-			stm.setLong(4, emprestimos.getFilmes().getId());
+			stm.setString(3, emprestimos.getDescr());
+			stm.setLong(4, emprestimos.getClientes().getId());
+			stm.setLong(5, emprestimos.getFilmes().getId());
+
 
 			stm.execute();
 
@@ -171,7 +175,7 @@ public class EmprestimosDAO  implements DAO<Emprestimos>{
 
 	@Override
 	public boolean update(Emprestimos emprestimos, String[] params) {
-		String sql = "update emprestimos set dataEmpre = ?, dataDev = ?, fk_idCliente = ?, fk_idFilmes = ?, where id = ?";
+		String sql = "update emprestimos set dataEmpre = ?, dataDev = ?, descr = ?, fk_idCliente = ?, fk_idFilmes = ?,  where id = ?";
 
 		// Recupera a conexão com o banco
 		Connection conexao = null;
@@ -185,9 +189,11 @@ public class EmprestimosDAO  implements DAO<Emprestimos>{
 			stm = conexao.prepareStatement(sql);
 			stm.setDate(1, emprestimos.getDataEmpre());
 			stm.setDate(2, emprestimos.getDataDev());
-			stm.setLong(3, emprestimos.getClientes().getId());
-			stm.setLong(4, emprestimos.getFilmes().getId());
+			stm.setString(3, emprestimos.getDescr());
+			stm.setLong(4, emprestimos.getClientes().getId());
 			stm.setLong(5, emprestimos.getFilmes().getId());
+			stm.setLong(6, emprestimos.getFilmes().getId());
+			
 
 
 			stm.execute();

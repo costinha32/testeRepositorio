@@ -85,6 +85,12 @@ public class EmprestimosListaController implements Initializable {
 	@FXML
 	private Label lblFilmeValor;
 
+    @FXML
+    private Label lblDescricao;
+
+    @FXML
+    private Label lblDescricaoValor;
+
 	@FXML
 	private ButtonBar barBotoes;
 
@@ -178,7 +184,7 @@ public class EmprestimosListaController implements Initializable {
 
 	private void carregarTableViewEmprestimos() {
 		this.tbcCodigo.setCellValueFactory(new PropertyValueFactory<>("id"));
-		this.tbcNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
+		this.tbcNome.setCellValueFactory(new PropertyValueFactory<>("fk_idCliente"));
 
 		this.setListaEmprestimos(this.getEmprestimosDAO().getAll());
 		this.setObservableListaEmprestimos(FXCollections.observableArrayList(this.getListaEmprestimos()));
@@ -241,11 +247,13 @@ public class EmprestimosListaController implements Initializable {
 		if (emprestimos != null) {
 			this.lblDataEmpreValor.setText(emprestimos.getDataEmpreFormatada());
 			this.lblDataDevValor.setText(emprestimos.getDataDevFormatada());
+			this.lblDescricaoValor.setText(emprestimos.getDescr());
 			this.lblClienteValor.setText(emprestimos.getClientes().getNome());
 			this.lblFilmeValor.setText(emprestimos.getFilmes().getNomeFilme());
 		} else {
 			this.lblDataEmpreValor.setText("");
 			this.lblDataDevValor.setText("");
+			this.lblDescricaoValor.setText("");
 			this.lblClienteValor.setText("");
 			this.lblFilmeValor.setText("");
 		}
