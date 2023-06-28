@@ -17,9 +17,9 @@ id int(100) primary key auto_increment not null,
 dataEmpre date not null,
 dataDev date not null,
 descr varchar (100) not null,
-fk_idClientes int(100)not null,
+fk_idCliente int(100)not null,
 fk_idFilmes int(100)not null,
-foreign key (fk_idClientes)
+foreign key (fk_idCliente)
 references clientes (id),
 foreign key (fk_idFilmes)
 references Filmes (id)
