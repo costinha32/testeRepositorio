@@ -33,7 +33,7 @@
                   <Font name="Courier New Bold" size="16.0" />
                </font>
             </Label>
-            <Label fx:id="lblUsuario" text="Usuário" textFill="WHITE" GridPane.rowIndex="2">
+            <Label fx:id="lblUsuario" text="Cliente" textFill="WHITE" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>

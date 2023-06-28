@@ -111,7 +111,7 @@ public class EmprestimosListaController implements Initializable {
 	private EmprestimosDAO emprestimosDAO;
 
 	public static final String EMPRESTIMOS_EDITAR = "- Editar";
-	public static final String EMPRESTIMOS_INCLUIR = "- Incluit";
+	public static final String EMPRESTIMOS_INCLUIR = "- Incluir";
 	
 	
 	@FXML
