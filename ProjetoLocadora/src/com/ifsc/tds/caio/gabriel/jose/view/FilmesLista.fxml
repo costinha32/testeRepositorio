@@ -11,8 +11,9 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="410.0" prefWidth="609.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ifsc.tds.caio.gabriel.jose.controller.FilmesListaController">
+<AnchorPane prefHeight="410.0" prefWidth="609.0" styleClass="AnchorPane" stylesheets="@../menu/application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ifsc.tds.caio.gabriel.jose.controller.FilmesListaController">
    <children>
       <AnchorPane fx:id="pnlPrincipal" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
          <children>
@@ -29,18 +30,27 @@
             </TableView>
             <AnchorPane fx:id="pnlDireita" layoutX="199.0" prefHeight="398.0" prefWidth="401.0">
                <children>
-                  <Label fx:id="lblDetalhes" layoutX="2.0" layoutY="4.0" text="Detalhes do Filme" />
+                  <Label fx:id="lblDetalhes" layoutX="2.0" layoutY="4.0" text="Detalhes do Filme" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Black" size="27.0" />
+                     </font></Label>
                   <GridPane fx:id="pnlDetalhes" layoutX="2.0" layoutY="43.0" prefHeight="176.0" prefWidth="395.0">
                      <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="193.0" minWidth="10.0" prefWidth="53.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="342.0" minWidth="10.0" prefWidth="342.0" />
                      </columnConstraints>
                      <rowConstraints>
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Label text="Nome" />
-                        <Label fx:id="lblNomeValor" GridPane.columnIndex="1" />
+                        <Label text="Nome" textFill="WHITE">
+                           <font>
+                              <Font name="Courier New Bold" size="16.0" />
+                           </font></Label>
+                        <Label fx:id="lblNomeValor" textFill="WHITE" GridPane.columnIndex="1">
+                           <font>
+                              <Font size="16.0" />
+                           </font></Label>
                      </children>
                   </GridPane>
                   <ButtonBar fx:id="barBotoes" layoutX="117.0" layoutY="337.0" prefHeight="47.0" prefWidth="244.0">

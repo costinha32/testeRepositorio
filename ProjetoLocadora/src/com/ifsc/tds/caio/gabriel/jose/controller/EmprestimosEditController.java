@@ -18,7 +18,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
@@ -44,9 +43,6 @@ public class EmprestimosEditController implements Initializable {
 	private Label lblDatadeDevolucao;
 
 	@FXML
-	private Label lblDescricao;
-
-	@FXML
 	private DatePicker dateDevolucao;
 
 	@FXML
@@ -54,9 +50,6 @@ public class EmprestimosEditController implements Initializable {
 
 	@FXML
 	private ComboBox<Clientes> cboUsuario;
-
-	@FXML
-	private TextField txtDescricao;
 
 	@FXML
 	private DatePicker dateEmprestimo;
@@ -90,7 +83,6 @@ public class EmprestimosEditController implements Initializable {
 		if (validarCampos()) {
 			this.emprestimos.setDataEmpre(Date.valueOf(this.dateEmprestimo.getValue()));
 			this.emprestimos.setDataDev(Date.valueOf(this.dateDevolucao.getValue()));
-			this.emprestimos.setDesc(this.txtDescricao.getText());
 			this.emprestimos.setClientes(this.cboUsuario.getSelectionModel().getSelectedItem());
 			this.emprestimos.setFilmes(this.cboFilme.getSelectionModel().getSelectedItem());
 

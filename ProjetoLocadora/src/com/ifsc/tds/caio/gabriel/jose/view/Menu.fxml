@@ -10,7 +10,7 @@
 
 <AnchorPane styleClass="AnchorPane" stylesheets="@../menu/application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ifsc.tds.caio.gabriel.jose.controller.MenuController">
    <children>
-      <VBox fx:id="pnlPrincipal" layoutX="10.0" layoutY="10.0" prefHeight="400.0" prefWidth="640.0">
+      <VBox fx:id="pnlPrincipal" layoutX="10.0" layoutY="10.0" prefHeight="400.0" prefWidth="640.0" AnchorPane.leftAnchor="0.0">
          <children>
             <MenuBar fx:id="barMenu" VBox.vgrow="NEVER">
                <menus>
