@@ -245,8 +245,8 @@ public class EmprestimosListaController implements Initializable {
 
 	public void selecionarItemTableViewEmprestimos(Emprestimos emprestimos) {
 		if (emprestimos != null) {
-			this.lblDataEmpreValor.setText(emprestimos.getDataEmpreFormatada());
-			this.lblDataDevValor.setText(emprestimos.getDataDevFormatada());
+			this.lblDataEmpreValor.setText(emprestimos.getDataEmpreFormatada().toString());
+			this.lblDataDevValor.setText(emprestimos.getDataDevFormatada().toString());
 			this.lblDescricaoValor.setText(emprestimos.getDescr());
 			this.lblClienteValor.setText(emprestimos.getClientes().getNome());
 			this.lblFilmeValor.setText(emprestimos.getFilmes().getNomeFilme());

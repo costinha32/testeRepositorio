@@ -175,7 +175,7 @@ public class EmprestimosDAO  implements DAO<Emprestimos>{
 
 	@Override
 	public boolean update(Emprestimos emprestimos, String[] params) {
-		String sql = "update emprestimos set dataEmpre = ?, dataDev = ?, descr = ?, fk_idCliente = ?, fk_idFilmes = ?,  where id = ?";
+		String sql = "update emprestimos set dataEmpre = ?, dataDev = ?, descr = ?, fk_idCliente = ?, fk_idFilmes = ? where id = ?";
 
 		// Recupera a conexão com o banco
 		Connection conexao = null;

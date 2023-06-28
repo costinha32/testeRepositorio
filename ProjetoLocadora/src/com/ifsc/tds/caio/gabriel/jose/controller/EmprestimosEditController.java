@@ -110,6 +110,15 @@ public class EmprestimosEditController implements Initializable {
 		if (this.dateDevolucao.getValue() == null) {
 			mensagemErros += "Informe a data de devolução!\n";
 		}
+		if (this.txtDescricao.getText() == null || this.txtDescricao.getText().trim().length() == 0) {
+			mensagemErros += "Informe uma descrição|\n";
+		}
+		if (this.cboUsuario.getSelectionModel().isEmpty()) {
+			mensagemErros += "Selecione um cliente\n";
+		}
+		if (this.cboFilme.getSelectionModel().isEmpty()) {
+			mensagemErros += "Selecine um filme!\n";
+		}
 
 
 		if (mensagemErros.length() == 0) {
