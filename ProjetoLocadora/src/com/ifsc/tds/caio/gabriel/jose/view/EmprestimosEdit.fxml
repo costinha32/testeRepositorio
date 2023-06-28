@@ -55,20 +55,20 @@
                <font>
                   <Font name="Courier New Bold" size="16.0" />
                </font></Label>
-            <DatePicker fx:id="dateDevolucao" prefHeight="25.0" prefWidth="230.0" styleClass="TextFiel" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <DatePicker fx:id="dateDevolucao" prefHeight="25.0" prefWidth="230.0" styleClass="DataPicker" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets left="25.0" />
                </GridPane.margin>
             </DatePicker>
-            <ComboBox fx:id="cboFilme" prefHeight="25.0" prefWidth="230.0" styleClass="TextFiel" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
-            <ComboBox fx:id="cboUsuario" prefHeight="25.0" prefWidth="230.0" styleClass="TextFiel" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
-            <DatePicker fx:id="dateEmprestimo" prefHeight="25.0" prefWidth="230.0" styleClass="TextFiel" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <ComboBox fx:id="cboFilme" prefHeight="25.0" prefWidth="230.0" styleClass="ComboBox" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+            <ComboBox fx:id="cboUsuario" prefHeight="25.0" prefWidth="230.0" styleClass="ComboBox" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+            <DatePicker fx:id="dateEmprestimo" prefHeight="25.0" prefWidth="230.0" styleClass="DataPicker" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
             <Label fx:id="lblDescricao" text="Descrição" textFill="WHITE" GridPane.rowIndex="2">
                <font>
                   <Font name="Courier New Bold" size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="txtDescricao" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="31.0" prefWidth="278.0" styleClass="TextFiel" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="txtDescricao" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="31.0" prefWidth="234.0" styleClass="TextFiel" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
          </children>
       </GridPane>
       <GridPane fx:id="pnlButton" layoutX="253.0" layoutY="269.0" prefHeight="46.0" prefWidth="191.0">

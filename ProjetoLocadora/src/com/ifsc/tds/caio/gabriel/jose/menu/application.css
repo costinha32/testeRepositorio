@@ -1,5 +1,5 @@
 .AnchorPane {
-	-fx-background: linear-gradiente(to right, rgb(20.0, 147.0, 220.0), rgb(17.0, 54.0, 71.0));
+	-fx-background: linear-gradiente(to right, rgb(20, 147, 220), rgb(17, 54, 71));
 }
 .button:hover {
 	-fx-background-color: #07f7f7;
@@ -11,4 +11,10 @@
 .TextFiel {
 	-fx-background-color: white;
 	-fx-background-radius: 25px;
+}
+.DataPicker {
+	-fx-background-color: white;
+}
+.ComboBox {
+	-fx-background-color: white;
 }
