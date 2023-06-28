@@ -25,7 +25,7 @@ public class Menu extends Application {
 			Scene menuLayout = new Scene(menuXML);
 
 			Stage menuJanela = new Stage();
-			Image icon = new Image("file:img/agenda.png");
+			Image icon = new Image("file:resources/img/agenda.png");
 			menuJanela.getIcons().add(icon);
 			menuJanela.initModality(Modality.APPLICATION_MODAL);
 			menuJanela.resizableProperty().setValue(Boolean.FALSE);
