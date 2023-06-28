@@ -184,7 +184,7 @@ public class EmprestimosListaController implements Initializable {
 
 	private void carregarTableViewEmprestimos() {
 		this.tbcCodigo.setCellValueFactory(new PropertyValueFactory<>("id"));
-		this.tbcNome.setCellValueFactory(new PropertyValueFactory<>("fk_idCliente"));
+		this.tbcNome.setCellValueFactory(new PropertyValueFactory<>("descr"));
 
 		this.setListaEmprestimos(this.getEmprestimosDAO().getAll());
 		this.setObservableListaEmprestimos(FXCollections.observableArrayList(this.getListaEmprestimos()));

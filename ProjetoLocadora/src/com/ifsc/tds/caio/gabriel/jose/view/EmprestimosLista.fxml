@@ -61,9 +61,9 @@
                            <font>
                               <Font name="Courier New" size="16.0" />
                            </font></Label>
-                        <Label fx:id="lblDataDevValor" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <Label fx:id="lblDataDevValor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <font>
-                              <Font name="Courier New" size="1165.0" />
+                              <Font name="Courier New" size="16.0" />
                            </font></Label>
                         <Label fx:id="lblCliente" text="Cliente" textFill="WHITE" GridPane.rowIndex="3">
                            <font>
@@ -71,7 +71,7 @@
                            </font></Label>
                         <Label fx:id="lblClienteValor" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3">
                            <font>
-                              <Font name="Courier New" size="1165.0" />
+                              <Font name="Courier New" size="16.0" />
                            </font></Label>
                         <Label fx:id="lblFilme" text="Filme" textFill="WHITE" GridPane.rowIndex="4">
                            <font>
@@ -88,7 +88,7 @@
                         </Label>
                         <Label fx:id="lblDescricaoValor" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <font>
-                              <Font name="Courier New" size="1165.0" />
+                              <Font name="Courier New" size="16.0" />
                            </font>
                         </Label>
                      </children>
