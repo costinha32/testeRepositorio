@@ -91,6 +91,7 @@ public class FilmesEditController implements Initializable {
 
 	public void setFilmes(Filmes filmes) {
 		this.filmes = filmes;
+		
 	}
 
 	private boolean validarCampos() {
