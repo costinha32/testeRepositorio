@@ -6,18 +6,18 @@ public class Exercicio4 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Scanner scanner = new Scanner(System.in);
+		Scanner teclado = new Scanner(System.in);
 
 		int quantidadeFuncionariosAvaliados = 0;
 
 		do {
 			System.out.println("Avaliação do Colaborador");
 			System.out.print("Informe o nome do colaborador: ");
-			String nome = scanner.nextLine();
+			String nome = teclado.nextLine();
 
 			System.out.print("Informe a quantidade de notas a serem lançadas: ");
-			int quantidadeNotas = scanner.nextInt();
-			scanner.nextLine();
+			int quantidadeNotas = teclado.nextInt();
+			teclado.nextLine();
 
 			double maiorNota = Double.MIN_VALUE;
 			double menorNota = Double.MAX_VALUE;
@@ -25,8 +25,8 @@ public class Exercicio4 {
 
 			for (int i = 1; i <= quantidadeNotas; i++) {
 				System.out.print("Informe a nota " + i + ": ");
-				double nota = scanner.nextDouble();
-				scanner.nextLine();
+				double nota = teclado.nextDouble();
+				teclado.nextLine();
 
 				if (nota > maiorNota) {
 					maiorNota = nota;
@@ -59,7 +59,7 @@ public class Exercicio4 {
 			quantidadeFuncionariosAvaliados++;
 
 			System.out.print("Deseja avaliar outro funcionário? (S/N): ");
-			String continuar = scanner.nextLine();
+			String continuar = teclado.nextLine();
 
 			if (!continuar.equalsIgnoreCase("S")) {
 				break;
@@ -67,7 +67,7 @@ public class Exercicio4 {
 		} while (true);
 
 		System.out.println("Quantidade de funcionários avaliados: " + quantidadeFuncionariosAvaliados);
-		scanner.close();
+		teclado.close();
 	}
 
 }
